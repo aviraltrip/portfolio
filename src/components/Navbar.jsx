@@ -1,4 +1,3 @@
-//theme toggle responsiveness on mobile and few sections visibility fix krni hai
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -17,77 +16,153 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10); // ✅ fixed scroll detection
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu when clicking outside or on escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("resize", handleResize);
+    
+    // Prevent body scroll when menu is open
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("resize", handleResize);
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
+
   return (
     <nav
       className={cn(
-        "fixed w-full z-50 transition-all duration-300", // ✅ bumped z-index
+        "fixed w-full z-50 transition-all duration-300",
         isScrolled
-          ? "py-3 bg-background/80 backdrop-blur-md shadow-xs"
-          : "py-5 bg-background/40 backdrop-blur-sm" // ✅ default background so text doesn’t overlap
+          ? "py-3 bg-background/90 backdrop-blur-md shadow-lg border-b border-border/50"
+          : "py-4 bg-background/60 backdrop-blur-sm"
       )}
     >
-      <div className="container flex items-center justify-between">
+      <div className="container mx-auto px-4 flex items-center justify-between">
         <a
-          className="text-xl font-bold text-primary flex items-center"
+          className="text-xl font-bold text-primary flex items-center relative z-50"
           href="#hero"
+          onClick={() => setIsMenuOpen(false)}
         >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"> Aviral's </span>{" "}
-            Portfolio
+          <span className="relative">
+            <span className="text-glow text-foreground">Aviral's</span>{" "}
+            <span className="text-primary">Portfolio</span>
           </span>
         </a>
 
-        {/* desktop nav */}
-        <div className="hidden md:flex space-x-8">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, key) => (
             <a
               key={key}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105"
             >
               {item.name}
             </a>
           ))}
         </div>
 
-        {/* mobile nav */}
+        {/* Mobile Hamburger Button */}
         <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden p-2 text-foreground hover:text-primary transition-colors duration-200 relative z-50 bg-background/80 backdrop-blur-sm rounded-md"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+          <div className="relative w-6 h-6">
+            <Menu 
+              size={24} 
+              className={cn(
+                "absolute inset-0 transition-all duration-300",
+                isMenuOpen ? "opacity-0 rotate-90" : "opacity-100 rotate-0"
+              )}
+            />
+            <X 
+              size={24} 
+              className={cn(
+                "absolute inset-0 transition-all duration-300",
+                isMenuOpen ? "opacity-100 rotate-0" : "opacity-0 -rotate-90"
+              )}
+            />
+          </div>
         </button>
 
+        {/* Mobile Navigation Menu */}
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
+            "fixed top-0 left-0 w-full h-screen bg-background/95 backdrop-blur-md z-40",
+            "flex flex-col items-center justify-center md:hidden",
+            "transition-all duration-300 ease-in-out",
             isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
+              ? "opacity-100 visible translate-y-0"
+              : "opacity-0 invisible -translate-y-4 pointer-events-none"
           )}
         >
-          <div className="flex flex-col space-y-8 text-xl">
+          {/* Mobile Menu Content */}
+          <div className="flex flex-col items-center space-y-8 text-center">
             {navItems.map((item, key) => (
               <a
                 key={key}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                className={cn(
+                  "text-2xl font-medium text-foreground/80 hover:text-primary",
+                  "transition-all duration-300 hover:scale-110",
+                  "py-3 px-6 rounded-lg hover:bg-primary/10",
+                  "transform",
+                  isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+                )}
+                style={{
+                  transitionDelay: isMenuOpen ? `${key * 100}ms` : "0ms"
+                }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </a>
             ))}
           </div>
+
+          {/* Mobile Menu Footer */}
+          <div className="absolute bottom-8 text-center">
+            <p className="text-sm text-foreground/60">
+              Tap anywhere outside to close
+            </p>
+          </div>
         </div>
+
+        {/* Overlay for mobile menu */}
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 bg-black/20 z-30 md:hidden"
+            onClick={() => setIsMenuOpen(false)}
+            aria-hidden="true"
+          />
+        )}
       </div>
     </nav>
   );

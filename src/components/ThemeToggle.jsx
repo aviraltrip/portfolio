@@ -7,7 +7,7 @@ export const ThemeToggle = () => {
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
-
+    
     if (storedTheme === "dark" || !storedTheme) {
       setIsDarkMode(true);
       document.documentElement.classList.add("dark");
@@ -35,16 +35,16 @@ export const ThemeToggle = () => {
       onClick={toggleTheme}
       aria-label="Toggle theme"
       className={cn(
-        "fixed top-4 right-4 z-50",
+        "fixed top-4 right-14 sm:right-2 z-50",
         "p-2 sm:p-3 md:p-4",
         "rounded-full bg-card shadow-md",
         "transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary"
       )}
     >
       {isDarkMode ? (
-        <Sun className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-yellow-300" />
+        <Sun className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-yellow-300" />
       ) : (
-        <Moon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-blue-900" />
+        <Moon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-blue-900" />
       )}
     </button>
   );

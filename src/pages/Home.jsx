@@ -15,13 +15,14 @@ export const Home = () => {
       <StarBackground />
       <Navbar />
       <ThemeToggle />
-
       <main>
+        
         <HeroSection />
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
         <ContactSection />
+        
       </main>
 
       <Footer />
