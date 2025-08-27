@@ -23,7 +23,6 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when clicking outside or on escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape" && isMenuOpen) {
@@ -40,7 +39,6 @@ export const Navbar = () => {
     document.addEventListener("keydown", handleKeyDown);
     window.addEventListener("resize", handleResize);
     
-    // Prevent body scroll when menu is open
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -75,7 +73,7 @@ export const Navbar = () => {
           </span>
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item, key) => (
             <a
@@ -88,7 +86,7 @@ export const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden p-2 text-foreground hover:text-primary transition-colors duration-200 relative z-50 bg-background/80 backdrop-blur-sm rounded-md"
@@ -113,7 +111,7 @@ export const Navbar = () => {
           </div>
         </button>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile Nav */}
         <div
           className={cn(
             "fixed top-0 left-0 w-full h-screen bg-background/95 backdrop-blur-md z-40",
@@ -124,7 +122,6 @@ export const Navbar = () => {
               : "opacity-0 invisible -translate-y-4 pointer-events-none"
           )}
         >
-          {/* Mobile Menu Content */}
           <div className="flex flex-col items-center space-y-8 text-center">
             {navItems.map((item, key) => (
               <a
@@ -147,7 +144,6 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Footer */}
           <div className="absolute bottom-8 text-center">
             <p className="text-sm text-foreground/60">
               Tap anywhere outside to close
@@ -155,7 +151,6 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Overlay for mobile menu */}
         {isMenuOpen && (
           <div
             className="fixed inset-0 bg-black/20 z-30 md:hidden"

@@ -1,4 +1,3 @@
-//env variables to be fixed and add krna hai gitignore
 import {
   Github,
   Instagram,
@@ -24,9 +23,9 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_gumapwe";
-    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_9tia29f";
-    const USER_ID = import.meta.env.VITE_EMAILJS_USER_ID || "rCs0nycIyX9SzgnQp";
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const USER_ID = import.meta.env.VITE_EMAILJS_USER_ID;
 
     if (!SERVICE_ID || !TEMPLATE_ID || !USER_ID) {
       console.error("EmailJS configuration missing. Please check your environment variables.");

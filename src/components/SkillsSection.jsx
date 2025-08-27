@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
-// SVG Logo Components
 const HTMLCSSLogo = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
     <path d="M4 3L5.77 20.15L12 22L18.23 20.15L20 3H4Z" fill="#E34F26"/>
@@ -102,19 +101,16 @@ const skillIcons = {
 };
 
 const skills = [
-  // Frontend
   { name: "HTML/CSS", level: 100, category: "frontend" },
   { name: "JavaScript", level: 100, category: "frontend" },
   { name: "React", level: 100, category: "frontend" },
   { name: "Tailwind CSS", level: 100, category: "frontend" },
   { name: "Bootstrap", level: 100, category: "frontend" },
 
-  // Backend
   { name: "Node.js", level: 100, category: "backend" },
   { name: "MySQL", level: 100, category: "backend" },
   { name: "Express.js", level: 100, category: "backend" },
 
-  // Tools
   { name: "Git/GitHub", level: 100, category: "tools" },
   { name: "VS Code", level: 100, category: "tools" },
 ];
