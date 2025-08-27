@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -84,32 +85,36 @@ export const Navbar = () => {
               {item.name}
             </a>
           ))}
+          <div className="transform -translate-y-10 translate-x-12">
+            <ThemeToggle />
+          </div>
         </div>
 
-        {/* Menu Button */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2 text-foreground hover:text-primary transition-colors duration-200 relative z-50 bg-background/80 backdrop-blur-sm rounded-md"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-          aria-expanded={isMenuOpen}
-        >
-          <div className="relative w-6 h-6">
-            <Menu 
-              size={24} 
-              className={cn(
-                "absolute inset-0 transition-all duration-300",
-                isMenuOpen ? "opacity-0 rotate-90" : "opacity-100 rotate-0"
-              )}
-            />
-            <X 
-              size={24} 
-              className={cn(
-                "absolute inset-0 transition-all duration-300",
-                isMenuOpen ? "opacity-100 rotate-0" : "opacity-0 -rotate-90"
-              )}
-            />
-          </div>
-        </button>
+        <div className="md:hidden relative z-50">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 text-foreground hover:text-primary transition-colors duration-200 bg-background/80 backdrop-blur-sm rounded-md"
+            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+            aria-expanded={isMenuOpen}
+          >
+            <div className="relative w-6 h-6">
+              <Menu 
+                size={24} 
+                className={cn(
+                  "absolute inset-0 transition-all duration-300",
+                  isMenuOpen ? "opacity-0 rotate-90" : "opacity-100 rotate-0"
+                )}
+              />
+              <X 
+                size={24} 
+                className={cn(
+                  "absolute inset-0 transition-all duration-300",
+                  isMenuOpen ? "opacity-100 rotate-0" : "opacity-0 -rotate-90"
+                )}
+              />
+            </div>
+          </button>
+        </div>
 
         {/* Mobile Nav */}
         <div
@@ -142,14 +147,24 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
-          </div>
-
-          <div className="absolute bottom-8 text-center">
-            <p className="text-sm text-foreground/60">
+            <div
+            className={cn(
+              "py-3 px-6 rounded-lg transition-all duration-300 self-end", "transform",
+              isMenuOpen ? "translate-x-1.5 opacity-100" : "translate-x-8 opacity-0"
+            )}
+            style={{              
+              transitionDelay: isMenuOpen ? `${navItems.length * 100}ms` : "0ms"
+              }}
+              >
+                <ThemeToggle />
+                </div>
+                </div>
+                <div className="absolute bottom-8 text-center">
+                  <p className="text-sm text-foreground/60">
               Tap anywhere outside to close
             </p>
-          </div>
-        </div>
+            </div>
+            </div>
 
         {isMenuOpen && (
           <div
