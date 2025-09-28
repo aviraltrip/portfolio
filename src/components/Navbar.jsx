@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
-  { name: "Home", href: "#hero" },
+  { name: "Home ", href: "#hero" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
@@ -56,36 +56,37 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 w-full h-16 z-50 transition-all duration-300",
         isScrolled
-          ? "py-3 bg-background/90 backdrop-blur-md shadow-lg border-b border-border/50"
-          : "py-4 bg-background/60 backdrop-blur-sm"
+          ? "bg-background/90 backdrop-blur-md shadow-lg border-b border-border/50"
+          : "bg-background/60 backdrop-blur-sm"
       )}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto px-4 h-full flex items-center">
         <a
-          className="text-xl font-bold text-primary flex items-center relative z-50"
+          className="text-xl font-bold text-primary flex items-center relative z-50 h-full"
           href="#hero"
           onClick={() => setIsMenuOpen(false)}
         >
-          <span className="relative">
-            <span className="text-glow text-foreground">Aviral's</span>{" "}
-            <span className="text-primary">Portfolio</span>
+          <span className="relative flex items-center h-full">
+            <span className="text-glow text-foreground">Aviral's <span className="text-primary">Portfolio</span></span>
           </span>
         </a>
 
+        <div className="flex-grow"></div>
+
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-8 h-full">
           {navItems.map((item, key) => (
             <a
               key={key}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105"
+              className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105 flex items-center h-full"
             >
               {item.name}
             </a>
           ))}
-          <div className="transform -translate-y-10 translate-x-12">
+          <div className="ml-4 flex items-center h-full">
             <ThemeToggle />
           </div>
         </div>
@@ -148,23 +149,24 @@ export const Navbar = () => {
               </a>
             ))}
             <div
-            className={cn(
-              "py-3 px-6 rounded-lg transition-all duration-300 self-end", "transform",
-              isMenuOpen ? "translate-x-1.5 opacity-100" : "translate-x-8 opacity-0"
-            )}
-            style={{              
-              transitionDelay: isMenuOpen ? `${navItems.length * 100}ms` : "0ms"
+              className={cn(
+                "py-3 px-6 rounded-lg transition-all duration-300",
+                "transform",
+                isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+              )}
+              style={{              
+                transitionDelay: isMenuOpen ? `${navItems.length * 100}ms` : "0ms"
               }}
-              >
-                <ThemeToggle />
-                </div>
-                </div>
-                <div className="absolute bottom-8 text-center">
-                  <p className="text-sm text-foreground/60">
+            >
+              <ThemeToggle />
+            </div>
+          </div>
+          <div className="absolute bottom-8 text-center">
+            <p className="text-sm text-foreground/60">
               Tap anywhere outside to close
             </p>
-            </div>
-            </div>
+          </div>
+        </div>
 
         {isMenuOpen && (
           <div
