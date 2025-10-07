@@ -69,7 +69,7 @@ export const Navbar = () => {
           onClick={() => setIsMenuOpen(false)}
         >
           <span className="relative flex items-center h-full">
-            <span className="text-glow text-foreground">Aviral's <span className="text-primary">Portfolio</span></span>
+            <span className="text-foreground">Aviral's <span className="text-primary">Portfolio</span></span>
           </span>
         </a>
 
