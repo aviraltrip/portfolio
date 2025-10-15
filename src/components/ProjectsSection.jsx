@@ -18,6 +18,7 @@ const projects = [
     image: "/projects/MediMitra.png",
     tags: ["ReactJS", "NextJS", "CSS"],
     demoUrl: "https://telemedicine-gamma.vercel.app/",
+    githubUrl: "#",
   },
   {
     id: 3,
