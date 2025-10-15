@@ -1,35 +1,33 @@
-//projects me project ke png aaenge for cards
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
     id: 1,
-    title: "Coming Soon",
-    description: "...",
-    image: "/projects/project1.png",
-    tags: ["a", "b", "c"],
+    title: "X UI Clone",
+    description: "A sleek and responsive UI clone of the X (Twitter) interface",
+    image: "/projects/X-UI.png",
+    tags: ["HTML", "Tailwind CSS"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/aviraltrip/X-UI-clone",
   },
   {
     id: 2,
-    title: "Coming Soon",
+    title: "MediMitra: AI-Powered Telemedicine Platform",
     description:
-      "...",
-    image: "/projects/project2.png",
-    tags: ["1", "2", "3"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "A collaborative project where I worked on building a Pharmacist Control Panel, real-time medicine availability based on geolocation, and automated stock-level notifications. I implemented dynamic routing using Next.js, integrated frontend and backend through Fetch API & handling response variations.",
+    image: "/projects/MediMitra.png",
+    tags: ["ReactJS", "NextJS", "CSS"],
+    demoUrl: "https://telemedicine-gamma.vercel.app/",
   },
   {
     id: 3,
-    title: "Coming Soon",
+    title: "Personal Portfolio",
     description:
-      "...",
-    image: "/projects/project3.png",
-    tags: ["a", "b", "c"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "A modern, intuitive portfolio website built to showcase my skills and projects",
+    image: "/projects/portfolio.png",
+    tags: ["ReactJS", "Tailwind CSS"],
+    demoUrl: "https://aviral-tripathi.vercel.app/",
+    githubUrl: "https://github.com/aviraltrip/portfolio",
   },
 ];
 
@@ -62,7 +60,7 @@ export const ProjectsSection = () => {
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
+                    <span key={tag} className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
                       {tag}
                     </span>
                   ))}
@@ -74,20 +72,26 @@ export const ProjectsSection = () => {
                 </p>
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      >
+                        <Github size={20} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -99,6 +103,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
+            rel="noopener noreferrer"
             href="https://github.com/aviraltrip"
           >
             Check My Github <ArrowRight size={16} />
