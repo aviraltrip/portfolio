@@ -10,16 +10,16 @@ const projects = [
     demoUrl: "#",
     githubUrl: "https://github.com/aviraltrip/X-UI-clone",
   },
-  {
-    id: 2,
-    title: "MediMitra: AI-Powered Telemedicine Platform",
-    description:
-      "A collaborative project where I worked on building a Pharmacist Control Panel, real-time medicine availability based on geolocation, and automated stock-level notifications. I implemented dynamic routing using Next.js, integrated frontend and backend through Fetch API & handled response variations.",
-    image: "/projects/MediMitra.png",
-    tags: ["ReactJS", "NextJS", "CSS"],
-    demoUrl: "https://telemedicine-gamma.vercel.app/",
-    githubUrl: "#",
-  },
+  // {
+  //   id: 2,
+  //   title: "MediMitra: AI-Powered Telemedicine Platform",
+  //   description:
+  //     "A collaborative project where I worked on building a Pharmacist Control Panel, real-time medicine availability based on geolocation, and automated stock-level notifications. I implemented dynamic routing using Next.js, integrated frontend and backend through Fetch API & handled response variations.",
+  //   image: "/projects/MediMitra.png",
+  //   tags: ["ReactJS", "NextJS", "CSS"],
+  //   demoUrl: "https://telemedicine-gamma.vercel.app/",
+  //   githubUrl: "#",
+  // },
   {
     id: 3,
     title: "Personal Portfolio",
