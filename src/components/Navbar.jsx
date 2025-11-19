@@ -56,11 +56,15 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 w-full h-16 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 w-full h-16 z-50",
+        "transition-shadow duration-300",
         isScrolled
           ? "bg-background/90 backdrop-blur-md shadow-lg border-b border-border/50"
           : "bg-background/60 backdrop-blur-sm"
       )}
+      style={{
+        transition: 'background-color 0s, backdrop-filter 0s, border-color 0s, box-shadow 300ms'
+      }}
     >
       <div className="container mx-auto px-4 h-full flex items-center">
         <a
@@ -81,7 +85,7 @@ export const Navbar = () => {
             <a
               key={key}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium hover:scale-105 flex items-center h-full"
+              className="text-foreground/80 hover:text-primary transition-colors duration-200 font-medium hover:scale-105 flex items-center h-full"
             >
               {item.name}
             </a>
@@ -120,13 +124,17 @@ export const Navbar = () => {
         {/* Mobile Nav */}
         <div
           className={cn(
-            "fixed top-0 left-0 w-full h-screen bg-background/95 backdrop-blur-md z-40",
+            "fixed top-0 left-0 w-full h-screen z-40",
             "flex flex-col items-center justify-center md:hidden",
             "transition-all duration-300 ease-in-out",
             isMenuOpen
               ? "opacity-100 visible translate-y-0"
               : "opacity-0 invisible -translate-y-4 pointer-events-none"
           )}
+          style={{
+            backgroundColor: 'hsl(var(--background) / 0.95)',
+            backdropFilter: 'blur(12px)'
+          }}
         >
           <div className="flex flex-col items-center space-y-8 text-center">
             {navItems.map((item, key) => (
@@ -135,13 +143,13 @@ export const Navbar = () => {
                 href={item.href}
                 className={cn(
                   "text-2xl font-medium text-foreground/80 hover:text-primary",
-                  "transition-all duration-300 hover:scale-110",
+                  "transition-colors duration-200 hover:scale-110",
                   "py-3 px-6 rounded-lg hover:bg-primary/10",
-                  "transform",
-                  isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+                  "transform"
                 )}
                 style={{
-                  transitionDelay: isMenuOpen ? `${key * 100}ms` : "0ms"
+                  transitionDelay: isMenuOpen ? `${key * 100}ms` : "0ms",
+                  transition: "color 200ms ease, transform 300ms ease, background-color 200ms ease"
                 }}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -178,4 +186,4 @@ export const Navbar = () => {
       </div>
     </nav>
   );
-};
+}
