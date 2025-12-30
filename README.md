@@ -1,6 +1,6 @@
-# Portfolio
+<h1 align="center"> Portfolio </h1>
 
-Personal portfolio website showcasing my projects, skills, and experience.
+<p align="center"> Personal portfolio website showcasing my projects, skills, and experience. </p>
 
 ## 🚀 Live Demo
 
@@ -23,4 +23,4 @@ Personal portfolio website showcasing my projects, skills, and experience.
 
 ---
 
-Made with ❤️ by Aviral Tripathi
+<p align="center"> Made with ❤️ by Aviral Tripathi </p>
