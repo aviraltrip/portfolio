@@ -65,14 +65,13 @@ const NodeJSLogo = () => (
   </svg>
 );
 
-const DatabaseLogo = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-    <ellipse cx="12" cy="5.5" rx="8.5" ry="2.5" fill="#336791"/>
-    <path d="M3.5 5.5V18.5C3.5 20.5 7.5 22 12 22C16.5 22 20.5 20.5 20.5 18.5V5.5" stroke="#336791" strokeWidth="1.5" fill="none"/>
-    <ellipse cx="12" cy="12" rx="8.5" ry="2.5" fill="none" stroke="#336791" strokeWidth="1.5"/>
+const MongoDBLogo = () => (
+    <svg width="28" height="28" viewBox="0 0 1080 1080" fill="none">
+    <path d="M540 0 C540 0 300 200 300 600 C300 800 400 1000 540 1080 C540 1080 540 1080 540 1080 C680 1000 780 800 780 600 C780 200 540 0 540 0 Z" fill="#6FA857"/>
+    <path d="M540 0 C540 0 540 0 540 1080" stroke="#4D8B3D" strokeWidth="20"/>
+    <path d="M540 950 L520 1080 L560 1080 L540 950 Z" fill="#B8C5B3"/>
   </svg>
 );
-
 const BootstrapLogo = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
     <path
@@ -94,7 +93,7 @@ const skillIcons = {
   "Tailwind CSS": TailwindLogo,
   "Bootstrap": BootstrapLogo,
   "Node.js": NodeJSLogo,
-  "MySQL": DatabaseLogo,
+  "MongoDB": MongoDBLogo,
   "Express.js": ExpressJSLogo,
   "Git/GitHub": GitHubLogo,
   "VS Code": VSCodeLogo,
@@ -108,7 +107,7 @@ const skills = [
   { name: "Bootstrap", level: 100, category: "frontend" },
 
   { name: "Node.js", level: 100, category: "backend" },
-  { name: "MySQL", level: 100, category: "backend" },
+  { name: "MongoDB", level: 100, category: "backend" },
   { name: "Express.js", level: 100, category: "backend" },
 
   { name: "Git/GitHub", level: 100, category: "tools" },
