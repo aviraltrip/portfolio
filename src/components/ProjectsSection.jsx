@@ -16,7 +16,7 @@ const projects = [
      description:
        "Developed a Pharmacist Control Panel with real-time, geolocation-based medicine availability and automated stock notifications. Implemented dynamic routing using Next.js and integrated frontend and backend via the Fetch API, handling varied API responses efficiently.",
      image: "/projects/healthdesk.png",
-     tags: ["ReactJS", "NextJS", "CSS"],
+     tags: ["ReactJS", "NextJS", "Tailwind CSS"],
      demoUrl: "https://axios-tawny-tau.vercel.app/",
      githubUrl: "#",
    },
