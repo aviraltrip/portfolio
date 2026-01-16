@@ -12,12 +12,12 @@ const projects = [
   },
    {
      id: 2,
-     title: "MediMitra: AI-Powered Telemedicine Platform",
+     title: "HealthDesk: AI-Powered Telemedicine Platform",
      description:
        "Developed a Pharmacist Control Panel with real-time, geolocation-based medicine availability and automated stock notifications. Implemented dynamic routing using Next.js and integrated frontend and backend via the Fetch API, handling varied API responses efficiently.",
-     image: "/projects/MediMitra.png",
+     image: "/projects/healthdesk.png",
      tags: ["ReactJS", "NextJS", "CSS"],
-     demoUrl: "https://telemedicine-gamma.vercel.app/",
+     demoUrl: "https://axios-tawny-tau.vercel.app/",
      githubUrl: "#",
    },
   {
