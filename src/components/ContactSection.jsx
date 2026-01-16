@@ -9,6 +9,8 @@ import {
   Send,
   Twitch,
   Twitter,
+  Code2,
+  Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -124,6 +126,12 @@ export const ContactSection = () => {
                 </a>
                 <a href="https://github.com/aviraltrip" target="_blank" rel="noopener noreferrer">
                   <Github className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+                </a>
+                <a href="https://leetcode.com/u/aviraltrip/" target="_blank" rel="noopener noreferrer">
+                  <Code2 className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+                </a>
+                <a href="https://codeforces.com/profile/aviraltrip" target="_blank" rel="noopener noreferrer">
+                  <Zap className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
                 </a>
               </div>
             </div>
