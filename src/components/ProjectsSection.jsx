@@ -14,7 +14,7 @@ const projects = [
      id: 2,
      title: "MediMitra: AI-Powered Telemedicine Platform",
      description:
-       "A collaborative project where I worked on building a Pharmacist Control Panel, real-time medicine availability based on geolocation, and automated stock-level notifications. I implemented dynamic routing using Next.js, integrated frontend and backend through Fetch API & handled response variations.",
+       "Developed a Pharmacist Control Panel with real-time, geolocation-based medicine availability and automated stock notifications. Implemented dynamic routing using Next.js and integrated frontend and backend via the Fetch API, handling varied API responses efficiently.",
      image: "/projects/MediMitra.png",
      tags: ["ReactJS", "NextJS", "CSS"],
      demoUrl: "https://telemedicine-gamma.vercel.app/",
@@ -22,13 +22,13 @@ const projects = [
    },
   {
     id: 3,
-    title: "Personal Portfolio",
+    title: "OnlyTechs: Skill-Based Leaderboard Platform",
     description:
-      "A modern, intuitive portfolio website built to showcase my skills and projects",
-    image: "/projects/portfolio.png",
-    tags: ["ReactJS", "Tailwind CSS"],
-    demoUrl: "https://aviral-tripathi.vercel.app/",
-    githubUrl: "https://github.com/aviraltrip/portfolio",
+      "Developed the platform UI with a dynamic rankings dashboard integrated with backend APIs and efficient pagination. Built a responsive, performance-focused interface using Next.js.",
+    image: "/projects/onlytechs.png",
+    tags: ["ReactJS", "NextJS", "Tailwind CSS"],
+    demoUrl: "https://onlytechs.vercel.app/",
+    githubUrl: "#",
   },
 ];
 
