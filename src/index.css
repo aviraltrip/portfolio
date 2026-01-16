@@ -64,12 +64,12 @@
 
 @layer base {
   :root {
-    --background: 184 61% 98%;
+    --background: 220 20% 97%;
     --foreground: 222 84% 4.9%;
     --card: 0 0% 100%;           
     --primary: 210 85% 55%;      
     --primary-foreground: 0 0% 100%;
-    --border: 50 30% 90%;       
+    --border: 220 15% 88%;       
   }
 
   .dark {
