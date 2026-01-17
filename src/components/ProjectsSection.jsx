@@ -19,7 +19,7 @@ const projects = [
     image: "/projects/healthdesk.png",
     tags: ["ReactJS", "NextJS", "Tailwind CSS"],
     demoUrl: "https://axios-tawny-tau.vercel.app/",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Hellf0rg0d/healthdesk",
   },
   {
     id: 3,
