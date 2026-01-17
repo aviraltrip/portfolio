@@ -1,6 +1,8 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { StarBackground } from "./StarBackground"; // your existing component
+import { LightThemeBackground } from "./LightThemeBackground"; // new component
 
 export const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);

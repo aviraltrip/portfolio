@@ -1,12 +1,35 @@
-import { Briefcase, Code, User } from "lucide-react";
+import { Briefcase, Code, User, Download } from "lucide-react";
+import { useState } from "react";
 
 export const AboutSection = () => {
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownloadCV = (e) => {
+    e.preventDefault();
+    
+    try {
+      setDownloading(true);
+      const link = document.createElement('a');
+      link.href = '/assets/Resume.pdf';
+      link.download = 'Resume.pdf';
+      link.target = '_blank'; 
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+    } catch (error) {
+      console.error('Download failed:', error);
+      alert('Resume download is currently unavailable. Please try again later.');
+    } finally {
+      setTimeout(() => setDownloading(false), 1000);
+    }
+  };
+
   return (
     <section id="about" className="py-24 px-4 relative">
-      {" "}
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          About <span className="text-primary"> Me</span>
+          About <span className="text-primary">Me</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -22,17 +45,20 @@ export const AboutSection = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="#contact" className="cosmic-button">
-                {" "}
                 Get In Touch
               </a>
               
-              <a
-                href="#"
+              <button
                 onClick={handleDownloadCV}
-                className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
+                disabled={downloading}
+                className="group relative px-6 py-2 rounded-full border-2 border-primary text-primary hover:text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Download CV
-              </a>
+                <span className="relative z-10 flex items-center gap-2">
+                  <Download size={16} className={downloading ? "animate-bounce" : "group-hover:animate-bounce"} />
+                  {downloading ? 'Downloading...' : 'Download CV'}
+                </span>
+                <span className="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              </button>
             </div>
           </div>
 
@@ -43,7 +69,7 @@ export const AboutSection = () => {
                   <Code className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg"> Web Development</h4>
+                  <h4 className="font-semibold text-lg">Web Development</h4>
                   <p className="text-muted-foreground">
                     Creating responsive websites and web applications with
                     modern frameworks.
@@ -70,8 +96,4 @@ export const AboutSection = () => {
       </div>
     </section>
   );
-};
-const handleDownloadCV = (e) => {
-  e.preventDefault();
-  alert("Coming Soon!");
 };
