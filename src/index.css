@@ -10,6 +10,18 @@
 
   --color-card: hsl(var(--card));
 
+  /* Additional semantic colors to align Tailwind tokens
+     like bg-secondary, text-muted-foreground, border-input, etc.
+     with the existing palette. */
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
   --animate-fade-in: fade-in 0.7s ease-out forwards;
@@ -70,6 +82,20 @@
     --primary: 210 85% 55%;      
     --primary-foreground: 0 0% 100%;
     --border: 220 15% 88%;       
+
+    /* Subtle, on-brand support colors for surfaces and text */
+    --secondary: 220 30% 96%;
+    --secondary-foreground: 222 84% 10%;
+    --muted: 220 15% 94%;
+    --muted-foreground: 222 12% 38%;
+
+    /* Form + focus tokens */
+    --input: 220 15% 88%;
+    --ring: 210 85% 60%;
+
+    /* Destructive actions (used by toast variant) */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
   }
 
   .dark {
@@ -79,6 +105,17 @@
     --primary: 210 85% 60%;          
     --primary-foreground: 0 0% 100%; 
     --border: 217 33% 20%;
+
+    --secondary: 222 47% 8%;
+    --secondary-foreground: 213 31% 90%;
+    --muted: 222 40% 10%;
+    --muted-foreground: 215 20% 70%;
+
+    --input: 217 33% 20%;
+    --ring: 210 85% 65%;
+
+    --destructive: 0 63% 45%;
+    --destructive-foreground: 0 0% 100%;
   }
 
   * {
@@ -147,5 +184,56 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
-  text-align: center;
+}
+
+/* Shared animation helpers for background effects and subtle polish */
+@keyframes shooting-star {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(300px) translateY(300px);
+    opacity: 0;
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-30px) translateX(5px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.animate-shooting-star {
+  animation: shooting-star 2s ease-out forwards;
+}
+
+.animate-float-slow {
+  animation: float-slow 20s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
 }

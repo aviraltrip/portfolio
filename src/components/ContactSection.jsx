@@ -89,48 +89,73 @@ export const ContactSection = () => {
             </h3>
 
   
-          <div className="flex flex-col items-center space-y-2 ml-4">
-          <div className="p-3 rounded-full bg-primary/10">
-          <Mail className="h-6 w-6 text-primary" />
+          <div className="flex flex-col items-center space-y-2 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-3">
+            <div className="p-3 rounded-full bg-primary/10">
+              <Mail className="h-6 w-6 text-primary" />
+            </div>
+            <div className="text-center sm:text-left">
+              <h4 className="font-medium">Email</h4>
+              <a
+                href="mailto:aviraltripathi25@gmail.com"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                aviraltripathi25@gmail.com
+              </a>
+            </div>
           </div>
-          <div>
-            <h4 className="font-medium">Email</h4>
-            <a
-            href="mailto:aviraltripathi25@gmail.com"
-            className="text-muted-foreground hover:text-primary transition-colors"
-    >
-      aviraltripathi25@gmail.com
-      </a>
-      </div>
-      </div>
-      <div className="flex flex-col items-center space-y-2 ml-4">   {/* ⬅️ added ml-4 */}
-        <div className="p-3 rounded-full bg-primary/10">
-        <MapPin className="h-6 w-6 text-primary" />
-        </div>
-        <div>
-          <h4 className="font-medium">Location</h4>
-          <span className="text-muted-foreground">
-            Greater Noida, Uttar Pradesh, India
-            </span>
+          <div className="flex flex-col items-center space-y-2 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-3 mt-6">
+            <div className="p-3 rounded-full bg-primary/10">
+              <MapPin className="h-6 w-6 text-primary" />
             </div>
+            <div className="text-center sm:text-left">
+              <h4 className="font-medium">Location</h4>
+              <span className="text-muted-foreground">
+                Greater Noida, Uttar Pradesh, India
+              </span>
             </div>
+          </div>
             
             <div className="pt-8">
               <h4 className="font-medium mb-4"> Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
-                ⠀<a href="https://www.linkedin.com/in/aviral-tripathi-836763204/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/aviral-tripathi-836763204/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open LinkedIn profile"
+                >
                   <Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
                 </a>
-                <a href="https://x.com/AviralTrip2503" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://x.com/AviralTrip2503"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open X (Twitter) profile"
+                >
                   <Twitter className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
                 </a>
-                <a href="https://github.com/aviraltrip" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://github.com/aviraltrip"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open GitHub profile"
+                >
                   <Github className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
                 </a>
-                <a href="https://leetcode.com/u/aviraltrip/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://leetcode.com/u/aviraltrip/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open LeetCode profile"
+                >
                   <Code2 className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
                 </a>
-                <a href="https://codeforces.com/profile/aviraltrip" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://codeforces.com/profile/aviraltrip"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Codeforces profile"
+                >
                   <Zap className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
                 </a>
               </div>

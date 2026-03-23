@@ -153,7 +153,7 @@ export const SkillsSection = () => {
             return (
               <div
                 key={key}
-                className="bg-card p-6 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 transform hover:scale-105 group border border-transparent hover:border-primary/20 text-center"
+                className="bg-card p-6 rounded-lg shadow-sm transition-all duration-300 transform group border border-transparent hover:border-primary/20 text-center card-hover"
               >
                 <div className="flex flex-col items-center gap-3">
                   <div className="relative">
@@ -169,23 +169,6 @@ export const SkillsSection = () => {
           })}
         </div>
       </div>
-      
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: scaleX(0);
-          }
-          to {
-            opacity: 1;
-            transform: scaleX(1);
-          }
-        }
-        
-        .card-hover:hover {
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-      `}</style>
     </section>
   );
 };

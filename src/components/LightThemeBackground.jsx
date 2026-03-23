@@ -138,42 +138,6 @@ export const LightThemeBackground = () => {
       ))}
       <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-blue-50/30 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-purple-50/30 to-transparent" />
-
-      <style jsx>{`
-        @keyframes float-slow {
-          0%, 100% {
-            transform: translateY(0) translateX(0);
-          }
-          25% {
-            transform: translateY(-20px) translateX(10px);
-          }
-          50% {
-            transform: translateY(-10px) translateX(-10px);
-          }
-          75% {
-            transform: translateY(-30px) translateX(5px);
-          }
-        }
-
-        @keyframes twinkle {
-          0%, 100% {
-            opacity: 0.2;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.5;
-            transform: scale(1.2);
-          }
-        }
-
-        .animate-float-slow {
-          animation: float-slow 20s ease-in-out infinite;
-        }
-
-        .animate-twinkle {
-          animation: twinkle 3s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 };

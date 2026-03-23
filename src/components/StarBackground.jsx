@@ -121,23 +121,6 @@ export const StarBackground = () => {
           <div className="absolute inset-0 w-20 h-px bg-gradient-to-r from-white to-transparent blur-sm" />
         </div>
       ))}
-
-      <style jsx>{`
-        @keyframes shooting-star {
-          0% {
-            transform: translateX(0) translateY(0);
-            opacity: 1;
-          }
-          100% {
-            transform: translateX(300px) translateY(300px);
-            opacity: 0;
-          }
-        }
-
-        .animate-shooting-star {
-          animation: shooting-star 2s ease-out forwards;
-        }
-      `}</style>
     </div>
   );
 };
