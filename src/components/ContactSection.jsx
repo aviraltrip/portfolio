@@ -115,8 +115,8 @@ export const ContactSection = () => {
             </div>
           </div>
             
-            <div className="pt-8">
-              <h4 className="font-medium mb-4"> Connect With Me</h4>
+            <div className="pt-8 text-center">
+              <h4 className="font-medium mb-4">Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
                 <a
                   href="https://www.linkedin.com/in/aviral-tripathi-836763204/"
