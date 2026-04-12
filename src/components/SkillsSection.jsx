@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const HTMLCSSLogo = () => (
@@ -17,12 +17,7 @@ const JavaScriptLogo = () => (
 );
 
 const ReactLogo = () => (
-  <svg
-    width="28"
-    height="28"
-    viewBox="-11.5 -10.23174 23 20.46348"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="28" height="28" viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg">
     <circle r="2" fill="#61DAFB" />
     <g stroke="#61DAFB" strokeWidth="1" fill="none">
       <ellipse rx="11" ry="4.2" />
@@ -49,6 +44,7 @@ const VSCodeLogo = () => (
     <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z" fill="#007ACC"/>
   </svg>
 );
+
 const ExpressJSLogo = () => (
   <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
     <circle cx="50" cy="50" r="50" fill="#4a4a4a"/>
@@ -57,31 +53,27 @@ const ExpressJSLogo = () => (
 );
 
 const NodeJSLogo = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242L11.13,1.627c-0.081-0.047-0.189-0.047-0.271,0L2.066,6.68C1.981,6.729,1.928,6.825,1.928,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921c0-0.659,0.353-1.275,0.922-1.603L11.076,0.242C11.632-0.081,12.367-0.081,12.922,0.242l8.795,5.076c0.57,0.329,0.924,0.944,0.924,1.603v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.795,5.076C12.643,23.916,12.322,24,11.998,24z M19.099,13.993c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"
-      fill="#68A063"
-    />
+  <svg width="28" height="28" viewBox="0 0 256 282" xmlns="http://www.w3.org/2000/svg">
+    <path d="M116.5 3.6c7-3.9 16-3.9 23 0l99.4 56.9c7 3.9 11.5 11.4 11.5 19.3v113.7c0 7.9-4.5 15.3-11.5 19.3l-99.4 56.9c-7 3.9-16 3.9-23 0L17.2 212.7c-7-3.9-11.5-11.4-11.5-19.3V79.7c0-7.9 4.5-15.3 11.5-19.3L116.5 3.6z" fill="#83CD29"/>
+    <path d="M128 34l-81 46.5v93.1l81 46.6 81-46.6V80.5L128 34z" fill="white"/>
+    <path d="M110 130v-32h14v48c0 14-8 22-22 22s-20-8-20-18h14c0 4 2 6 6 6s6-2 6-6-2-6-4-6-4 2-6 4h-8l2-14c1-10-4-12-4-12l10-2s-4 2-4 6c-1 4 4 8 6 9 2 0 4-2 4-4zM160 160c-4 4-10 6-16 6s-12-2-16-6l8-10c2 2 6 4 8 4 2 0 4-1 4-2 0-1-1-2-5-3-6-2-15-4-15-14 0-8 6-12 15-12s10 2 14 5l-8 9c-2-2-4-3-6-3-2 0-3 1-3 2 0 1 1 2 4 3s15 5 15 14c0 8-6 12-13 17h10z" fill="#83CD29"/>
   </svg>
 );
 
 const MongoDBLogo = () => (
-    <svg width="28" height="28" viewBox="0 0 1080 1080" fill="none">
+  <svg width="28" height="28" viewBox="0 0 1080 1080" fill="none">
     <path d="M540 0 C540 0 300 200 300 600 C300 800 400 1000 540 1080 C540 1080 540 1080 540 1080 C680 1000 780 800 780 600 C780 200 540 0 540 0 Z" fill="#6FA857"/>
     <path d="M540 0 C540 0 540 0 540 1080" stroke="#4D8B3D" strokeWidth="20"/>
     <path d="M540 950 L520 1080 L560 1080 L540 950 Z" fill="#B8C5B3"/>
   </svg>
 );
-const BootstrapLogo = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M5 2h14c1.66 0 3 1.34 3 3v14c0 1.66-1.34 3-3 3H5c-1.66 0-3-1.34-3-3V5c0-1.66 1.34-3 3-3z"
-      fill="#7952B3"
-    />
-    <path
-      d="M8 7v10h5.2c2 0 3.3-1.2 3.3-2.9 0-1.1-.6-2-1.5-2.5 
-         .8-.4 1.3-1.2 1.3-2.2C16.3 8 15.3 7 14 7H8zm2 1.5h3.7c.5 0 .9.4.9.9s-.4.9-.9.9H10V8.5zm0 3.4h4c.7 0 1.2.5 1.2 1.2s-.5 1.2-1.2 1.2h-4v-2.4z"
-      fill="white"
+
+const PostmanLogo = () => (
+  <svg width="28" height="28" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="128" cy="128" r="128" fill="#FF6C37"/>
+    <path 
+      fill="white" 
+      d="M178.5,73c-14.1,0-25.5,11.4-25.5,25.5c0,1.9,0.2,3.7,0.6,5.5L78.8,178.8 c-1.3,1.3-3,2.1-4.8,2.1c-3.8,0-6.9-3.1-6.9-6.9c0-1.8,0.7-3.5,2-4.8l12.4-12.4c3.1-3.1,3.1-8.2,0-11.3s-8.2-3.1-11.3,0l-12.4,12.4 c-7.5,7.5-7.5,19.7,0,27.2l21.2,21.2c7.5,7.5,19.7,7.5,27.2,0l15.1-15.1c1.3-1.3,2.1-3,2.1-4.8c0-3.8-3.1-6.9-6.9-6.9 c-1.8,0-3.5,0.7-4.8,2l-7.6,7.6L164.6,107.2c1.7,0.4,3.5,0.6,5.4,0.6c14.1,0,25.5-11.4,25.5-25.5S184,66.8,169.9,66.8z" 
     />
   </svg>
 );
@@ -91,7 +83,7 @@ const skillIcons = {
   "JavaScript": JavaScriptLogo,
   "React": ReactLogo,
   "Tailwind CSS": TailwindLogo,
-  "Bootstrap": BootstrapLogo,
+  "Postman": PostmanLogo,
   "Node.js": NodeJSLogo,
   "MongoDB": MongoDBLogo,
   "Express.js": ExpressJSLogo,
@@ -99,47 +91,74 @@ const skillIcons = {
   "VS Code": VSCodeLogo,
 };
 
+const categoryGlow = {
+  frontend: "hover:shadow-[0_0_18px_rgba(56,189,248,0.35)] hover:border-sky-400/40",
+  backend:  "hover:shadow-[0_0_18px_rgba(104,160,99,0.35)] hover:border-green-400/40",
+  tools:    "hover:shadow-[0_0_18px_rgba(139,92,246,0.35)] hover:border-violet-400/40",
+};
+
 const skills = [
-  { name: "HTML/CSS", level: 100, category: "frontend" },
-  { name: "JavaScript", level: 100, category: "frontend" },
-  { name: "React", level: 100, category: "frontend" },
-  { name: "Tailwind CSS", level: 100, category: "frontend" },
-  { name: "Bootstrap", level: 100, category: "frontend" },
-
-  { name: "Node.js", level: 100, category: "backend" },
-  { name: "MongoDB", level: 100, category: "backend" },
-  { name: "Express.js", level: 100, category: "backend" },
-
-  { name: "Git/GitHub", level: 100, category: "tools" },
-  { name: "VS Code", level: 100, category: "tools" },
+  { name: "HTML/CSS", category: "frontend" },
+  { name: "JavaScript", category: "frontend" },
+  { name: "React", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend" },
+  { name: "Node.js", category: "backend" },
+  { name: "MongoDB", category: "backend" },
+  { name: "Express.js", category: "backend" },
+  { name: "Git/GitHub", category: "tools" },
+  { name: "Postman", category: "tools" },
+  { name: "VS Code", category: "tools" },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];
 
+const categoryColors = {
+  frontend: "bg-sky-500/10 border-sky-500/30 text-sky-500",
+  backend:  "bg-green-500/10 border-green-500/30 text-green-500",
+  tools:    "bg-violet-500/10 border-violet-500/30 text-violet-500",
+};
+
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const filteredSkills = skills.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory
   );
 
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+    <section id="skills" className="py-24 px-4 relative bg-secondary/30" ref={sectionRef}>
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary"> Skills</span>
+        <h2 className="section-heading">
+          My <span className="text-gradient">Skills</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, key) => (
+        {/* Category filter pills */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => (
             <button
-              key={key}
+              key={category}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-all duration-300 capitalize transform hover:scale-105",
+                "px-5 py-2 rounded-full transition-all duration-300 capitalize text-sm font-medium border",
                 activeCategory === category
-                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                  : "bg-secondary/70 text-foreground hover:bg-secondary hover:shadow-md"
+                  ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/25 scale-105"
+                  : "bg-card/60 border-border/50 text-foreground/70 hover:bg-primary/10 hover:border-primary/40 hover:text-primary hover:scale-105"
               )}
             >
               {category}
@@ -147,23 +166,44 @@ export const SkillsSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, key) => {
+        {/* Skill cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+          {filteredSkills.map((skill, index) => {
             const IconComponent = skillIcons[skill.name] || HTMLCSSLogo;
+            const glowClass = categoryGlow[skill.category] || "";
             return (
               <div
-                key={key}
-                className="bg-card p-6 rounded-lg shadow-sm transition-all duration-300 transform group border border-transparent hover:border-primary/20 text-center card-hover"
+                key={skill.name}
+                className={cn(
+                  "glass-card p-5 flex flex-col items-center gap-3 text-center cursor-default",
+                  "group border border-border/40 transition-all duration-300",
+                  "hover:scale-[1.06] hover:-translate-y-1",
+                  glowClass,
+                  visible ? "reveal-visible" : "reveal-on-scroll"
+                )}
+                style={{
+                  transition: `opacity 0.4s ease ${index * 60}ms, transform 0.4s ease ${index * 60}ms, box-shadow 0.3s ease, border-color 0.3s ease`,
+                }}
               >
-                <div className="flex flex-col items-center gap-3">
-                  <div className="relative">
-                    <IconComponent className="transition-all duration-300 group-hover:scale-110 drop-shadow-sm group-hover:drop-shadow-lg" />
-                    <div className="absolute inset-0 bg-primary/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 scale-150"></div>
+                {/* Icon with category badge dot */}
+                <div className="relative">
+                  <div className="p-3 rounded-xl bg-card group-hover:bg-primary/5 transition-colors duration-300">
+                    <IconComponent />
                   </div>
-                  <h3 className="font-semibold text-lg group-hover:text-primary transition-colors duration-300">
-                    {skill.name}
-                  </h3>
+                  <span
+                    className={cn(
+                      "absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full border-2 border-background",
+                      skill.category === "frontend" ? "bg-sky-400" :
+                      skill.category === "backend"  ? "bg-green-400" : "bg-violet-400"
+                    )}
+                  />
                 </div>
+                <h3 className="font-semibold text-sm group-hover:text-primary transition-colors duration-300 leading-tight">
+                  {skill.name}
+                </h3>
+                <span className={cn("text-[10px] font-medium px-2 py-0.5 rounded-full border capitalize", categoryColors[skill.category])}>
+                  {skill.category}
+                </span>
               </div>
             );
           })}
