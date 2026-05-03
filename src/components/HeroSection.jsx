@@ -27,8 +27,8 @@ export const HeroSection = () => {
           </p>
 
           <div className="flex items-center justify-center opacity-0 animate-fade-in-delay-4">
-            <a 
-              href="#projects" 
+            <a
+              href="#projects"
               className="px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium inline-flex items-center group transition-all duration-300 hover:shadow-[0_0_18px_rgba(139,92,246,0.5)] hover:scale-105 active:scale-95"
             >
               View My Work
