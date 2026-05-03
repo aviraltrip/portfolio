@@ -1,16 +1,64 @@
 import { useEffect, useState } from "react";
 
+const buildParticles = () => {
+  if (typeof window === "undefined") return [];
+  const numberOfParticles = Math.floor(
+    (window.innerWidth * window.innerHeight) / 12000
+  );
+  const newParticles = [];
+  for (let i = 0; i < numberOfParticles; i++) {
+    const size = Math.random();
+    const particleType =
+      size > 0.7 ? "large" : size > 0.4 ? "medium" : "small";
+    newParticles.push({
+      id: i,
+      size:
+        particleType === "large" ? 5 : particleType === "medium" ? 3.5 : 2.5,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      opacity: Math.random() * 0.35 + 0.35,
+      animationDuration: Math.random() * 4 + 3,
+      animationDelay: Math.random() * 3,
+      type: particleType,
+      color:
+        Math.random() > 0.5
+          ? "blue"
+          : Math.random() > 0.5
+          ? "purple"
+          : "indigo",
+    });
+  }
+  return newParticles;
+};
+
+const buildFloatingShapes = () => {
+  const shapes = [];
+  const numberOfShapes = 6;
+  for (let i = 0; i < numberOfShapes; i++) {
+    shapes.push({
+      id: i,
+      x: Math.random() * 90,
+      y: Math.random() * 90,
+      size: Math.random() * 150 + 100,
+      duration: Math.random() * 20 + 15,
+      delay: Math.random() * 5,
+      shape: Math.random() > 0.5 ? "circle" : "blob",
+      color: i % 3 === 0 ? "blue" : i % 3 === 1 ? "purple" : "pink",
+    });
+  }
+  return shapes;
+};
+
 export const LightThemeBackground = () => {
-  const [particles, setParticles] = useState([]);
-  const [floatingShapes, setFloatingShapes] = useState([]);
+  const [particles, setParticles] = useState(() => buildParticles());
+  const [floatingShapes, setFloatingShapes] = useState(() =>
+    buildFloatingShapes()
+  );
 
   useEffect(() => {
-    generateParticles();
-    generateFloatingShapes();
-
     const handleResize = () => {
-      generateParticles();
-      generateFloatingShapes();
+      setParticles(buildParticles());
+      setFloatingShapes(buildFloatingShapes());
     };
 
     window.addEventListener("resize", handleResize);
@@ -19,53 +67,6 @@ export const LightThemeBackground = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  const generateParticles = () => {
-    const numberOfParticles = Math.floor(
-      (window.innerWidth * window.innerHeight) / 12000
-    );
-
-    const newParticles = [];
-
-    for (let i = 0; i < numberOfParticles; i++) {
-      const size = Math.random();
-      const particleType = size > 0.7 ? 'large' : size > 0.4 ? 'medium' : 'small';
-      
-      newParticles.push({
-        id: i,
-        size: particleType === 'large' ? 5 : particleType === 'medium' ? 3.5 : 2.5,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        opacity: Math.random() * 0.35 + 0.35,
-        animationDuration: Math.random() * 4 + 3,
-        animationDelay: Math.random() * 3,
-        type: particleType,
-        color: Math.random() > 0.5 ? 'blue' : Math.random() > 0.5 ? 'purple' : 'indigo',
-      });
-    }
-
-    setParticles(newParticles);
-  };
-
-  const generateFloatingShapes = () => {
-    const shapes = [];
-    const numberOfShapes = 6;
-
-    for (let i = 0; i < numberOfShapes; i++) {
-      shapes.push({
-        id: i,
-        x: Math.random() * 90,
-        y: Math.random() * 90,
-        size: Math.random() * 150 + 100,
-        duration: Math.random() * 20 + 15,
-        delay: Math.random() * 5,
-        shape: Math.random() > 0.5 ? 'circle' : 'blob',
-        color: i % 3 === 0 ? 'blue' : i % 3 === 1 ? 'purple' : 'pink',
-      });
-    }
-
-    setFloatingShapes(shapes);
-  };
 
   const getParticleColorClass = (color) => {
     switch(color) {

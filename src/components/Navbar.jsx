@@ -62,7 +62,7 @@ export const Navbar = () => {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 w-full h-16 z-50",
-        "transition-all duration-300",
+        "transition-[box-shadow,backdrop-filter,border-color] duration-300",
         isScrolled
           ? "bg-background/90 backdrop-blur-md shadow-lg border-b border-border/50"
           : "bg-background/60 backdrop-blur-sm"

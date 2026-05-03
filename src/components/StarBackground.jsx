@@ -1,17 +1,41 @@
 import { useEffect, useState } from "react";
 
+const buildStars = () => {
+  if (typeof window === "undefined") return [];
+  const numberOfStars = Math.floor(
+    (window.innerWidth * window.innerHeight) / 8000
+  );
+  const newStars = [];
+  for (let i = 0; i < numberOfStars; i++) {
+    const size = Math.random();
+    const starType = size > 0.7 ? "large" : size > 0.4 ? "medium" : "small";
+    newStars.push({
+      id: i,
+      size: starType === "large" ? 3 : starType === "medium" ? 2 : 1,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      opacity: Math.random() * 0.4 + 0.6,
+      animationDuration: Math.random() * 3 + 2,
+      animationDelay: Math.random() * 2,
+      type: starType,
+      color:
+        Math.random() > 0.9
+          ? "blue"
+          : Math.random() > 0.95
+          ? "purple"
+          : "white",
+    });
+  }
+  return newStars;
+};
+
 export const StarBackground = () => {
-  const [stars, setStars] = useState([]);
+  const [stars, setStars] = useState(() => buildStars());
   const [shootingStars, setShootingStars] = useState([]);
 
   useEffect(() => {
-    generateStars();
+    const handleResize = () => setStars(buildStars());
 
-    const handleResize = () => {
-      generateStars();
-    };
-
-    // Generate shooting stars periodically
     const shootingStarInterval = setInterval(() => {
       createShootingStar();
     }, 3000);
@@ -23,33 +47,6 @@ export const StarBackground = () => {
       clearInterval(shootingStarInterval);
     };
   }, []);
-
-  const generateStars = () => {
-    const numberOfStars = Math.floor(
-      (window.innerWidth * window.innerHeight) / 8000
-    );
-
-    const newStars = [];
-
-    for (let i = 0; i < numberOfStars; i++) {
-      const size = Math.random();
-      const starType = size > 0.7 ? 'large' : size > 0.4 ? 'medium' : 'small';
-      
-      newStars.push({
-        id: i,
-        size: starType === 'large' ? 3 : starType === 'medium' ? 2 : 1,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        opacity: Math.random() * 0.4 + 0.6,
-        animationDuration: Math.random() * 3 + 2,
-        animationDelay: Math.random() * 2,
-        type: starType,
-        color: Math.random() > 0.9 ? 'blue' : Math.random() > 0.95 ? 'purple' : 'white',
-      });
-    }
-
-    setStars(newStars);
-  };
 
   const createShootingStar = () => {
     const id = Date.now();

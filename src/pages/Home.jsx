@@ -10,15 +10,12 @@ import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 
 export const Home = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() =>
+    typeof document !== "undefined" &&
+    document.documentElement.classList.contains("dark")
+  );
 
-  // Watch for theme changes
   useEffect(() => {
-    // Initial check
-    const storedTheme = localStorage.getItem("theme");
-    setIsDarkMode(storedTheme === "dark" || !storedTheme);
-
-    // Listen for theme changes
     const observer = new MutationObserver(() => {
       setIsDarkMode(document.documentElement.classList.contains("dark"));
     });
