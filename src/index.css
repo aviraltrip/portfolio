@@ -292,3 +292,36 @@
 .animate-twinkle {
   animation: twinkle 3s ease-in-out infinite;
 }
+
+/* Skill card hover polish */
+.skill-card {
+  will-change: transform, box-shadow;
+  transform-style: preserve-3d;
+}
+
+.skill-card__sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    hsl(var(--primary) / 0.18) 50%,
+    transparent 70%
+  );
+  background-size: 250% 100%;
+  background-position: -150% 0;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-position 0.9s ease;
+}
+
+.skill-card:hover .skill-card__sheen {
+  opacity: 1;
+  background-position: 150% 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card__sheen { display: none; }
+  .skill-card:hover { transform: none !important; }
+}

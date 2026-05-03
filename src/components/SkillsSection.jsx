@@ -175,33 +175,49 @@ export const SkillsSection = () => {
               <div
                 key={skill.name}
                 className={cn(
-                  "glass-card p-5 flex flex-col items-center gap-3 text-center cursor-default",
-                  "group border border-border/40 transition-all duration-300",
-                  "hover:scale-[1.06] hover:-translate-y-1",
+                  "skill-card glass-card p-5 flex flex-col items-center gap-3 text-center cursor-default",
+                  "group relative overflow-hidden border border-border/40",
+                  "hover:-translate-y-1.5",
                   glowClass,
                   visible ? "reveal-visible" : "reveal-on-scroll"
                 )}
                 style={{
-                  transition: `opacity 0.4s ease ${index * 60}ms, transform 0.4s ease ${index * 60}ms, box-shadow 0.3s ease, border-color 0.3s ease`,
+                  transition: `opacity 0.4s ease ${index * 60}ms, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) ${index * 60}ms, box-shadow 0.4s ease, border-color 0.3s ease`,
                 }}
               >
+                {/* Animated sheen sweep on hover */}
+                <span className="skill-card__sheen" aria-hidden="true" />
+
+                {/* Soft category-tinted halo on hover */}
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500",
+                    skill.category === "frontend"
+                      ? "bg-[radial-gradient(circle_at_50%_0%,rgba(56,189,248,0.18),transparent_60%)]"
+                      : skill.category === "backend"
+                      ? "bg-[radial-gradient(circle_at_50%_0%,rgba(104,160,99,0.18),transparent_60%)]"
+                      : "bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.18),transparent_60%)]"
+                  )}
+                />
+
                 {/* Icon with category badge dot */}
-                <div className="relative">
-                  <div className="p-3 rounded-xl bg-card group-hover:bg-primary/5 transition-colors duration-300">
+                <div className="relative z-10">
+                  <div className="p-3 rounded-xl bg-card transition-all duration-500 ease-out group-hover:bg-primary/5 group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-lg group-hover:shadow-primary/20">
                     <IconComponent />
                   </div>
                   <span
                     className={cn(
-                      "absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full border-2 border-background",
+                      "absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full border-2 border-background transition-transform duration-500 group-hover:scale-125",
                       skill.category === "frontend" ? "bg-sky-400" :
                       skill.category === "backend"  ? "bg-green-400" : "bg-violet-400"
                     )}
                   />
                 </div>
-                <h3 className="font-semibold text-sm group-hover:text-primary transition-colors duration-300 leading-tight">
+                <h3 className="relative z-10 font-semibold text-sm group-hover:text-primary transition-colors duration-300 leading-tight">
                   {skill.name}
                 </h3>
-                <span className={cn("text-[10px] font-medium px-2 py-0.5 rounded-full border capitalize", categoryColors[skill.category])}>
+                <span className={cn("relative z-10 text-[10px] font-medium px-2 py-0.5 rounded-full border capitalize transition-all duration-300 group-hover:scale-105", categoryColors[skill.category])}>
                   {skill.category}
                 </span>
               </div>
