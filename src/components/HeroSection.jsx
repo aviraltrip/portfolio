@@ -21,9 +21,7 @@ export const HeroSection = () => {
 
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3 text-balance">
-            I create modern web applications.
-            Specializing in full-stack development, I build interfaces that are
-            reliable and user-friendly.
+            Full-stack developer building scalable web apps and AI-powered tools that turn ideas into real, usable products.
           </p>
 
           <div className="flex items-center justify-center opacity-0 animate-fade-in-delay-4">
