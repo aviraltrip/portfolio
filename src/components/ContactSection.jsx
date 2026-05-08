@@ -168,8 +168,12 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
+    <section id="contact" className="py-24 px-4 relative overflow-hidden bg-secondary/30">
+      {/* Ambient blobs */}
+      <div className="absolute top-20 right-10 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl animate-pulse pointer-events-none" />
+      <div className="absolute bottom-20 left-10 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000 pointer-events-none" />
+
+      <div className="container mx-auto max-w-5xl relative z-10">
         <h2 className="section-heading">
           Get In <span className="text-gradient">Touch</span>
         </h2>

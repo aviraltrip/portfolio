@@ -1,56 +1,15 @@
-import { Briefcase, Code, User, FileText, Download, ExternalLink, ChevronDown } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { Briefcase, Code, User } from "lucide-react";
+import { ResumeButton } from "./ResumeButton";
 
 export const AboutSection = () => {
-  const [downloading, setDownloading] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef(null);
-
-  const RESUME_PATH = "/assets/Resume.pdf";
-
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setMenuOpen(false);
-      }
-    };
-    const handleEscape = (e) => {
-      if (e.key === "Escape") setMenuOpen(false);
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleEscape);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, []);
-
-  const handleOpenResume = () => {
-    setMenuOpen(false);
-    window.open(RESUME_PATH, "_blank", "noopener,noreferrer");
-  };
-
-  const handleDownloadResume = () => {
-    setMenuOpen(false);
-    try {
-      setDownloading(true);
-      const link = document.createElement("a");
-      link.href = RESUME_PATH;
-      link.download = "Resume.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error("Download failed:", error);
-      alert("Resume download is currently unavailable. Please try again later.");
-    } finally {
-      setTimeout(() => setDownloading(false), 1000);
-    }
-  };
 
   return (
-    <section id="about" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
+    <section id="about" className="py-24 px-4 relative overflow-hidden">
+      {/* Ambient blobs */}
+      <div className="absolute top-24 right-10 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000 pointer-events-none" />
+
+      <div className="container mx-auto max-w-5xl relative z-10">
         <h2 className="section-heading">
           About <span className="text-gradient">Me</span>
         </h2>
@@ -72,56 +31,7 @@ export const AboutSection = () => {
                 Get In Touch
               </a>
 
-              <div ref={menuRef} className="relative">
-                <button
-                  type="button"
-                  onClick={() => setMenuOpen((open) => !open)}
-                  disabled={downloading}
-                  aria-haspopup="menu"
-                  aria-expanded={menuOpen}
-                  className="group relative px-6 py-2 rounded-full border-2 border-primary text-primary hover:text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
-                >
-                  <span className="relative z-10 flex items-center gap-2">
-                    <FileText
-                      size={16}
-                      className={downloading ? "animate-bounce" : "group-hover:animate-bounce"}
-                    />
-                    {downloading ? "Downloading..." : "Resume"}
-                    <ChevronDown
-                      size={14}
-                      className={`transition-transform duration-300 ${menuOpen ? "rotate-180" : ""}`}
-                    />
-                  </span>
-                  <span className="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-                </button>
-
-                {menuOpen && (
-                  <div
-                    role="menu"
-                    className="absolute left-0 right-0 sm:left-0 sm:right-auto mt-2 min-w-full sm:min-w-[200px] rounded-xl border border-border/60 bg-card/95 backdrop-blur-md shadow-lg shadow-primary/10 overflow-hidden z-20 animate-fade-in"
-                  >
-                    <button
-                      type="button"
-                      role="menuitem"
-                      onClick={handleOpenResume}
-                      className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-left text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-200"
-                    >
-                      <ExternalLink size={15} />
-                      Open Resume
-                    </button>
-                    <div className="h-px bg-border/60" />
-                    <button
-                      type="button"
-                      role="menuitem"
-                      onClick={handleDownloadResume}
-                      className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-left text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-200"
-                    >
-                      <Download size={15} />
-                      Download
-                    </button>
-                  </div>
-                )}
-              </div>
+              <ResumeButton variant="full" />
             </div>
           </div>
 

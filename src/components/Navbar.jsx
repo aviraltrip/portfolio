@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ExternalLink, Download } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
+import { ResumeButton } from "./ResumeButton";
 
 const navItems = [
   { name: "Home", href: "#hero", id: "hero" },
@@ -102,7 +103,8 @@ export const Navbar = () => {
               )} />
             </a>
           ))}
-          <div className="ml-3 flex items-center h-full">
+          <div className="ml-3 flex items-center gap-3 h-full">
+            <ResumeButton variant="compact" />
             <ThemeToggle />
           </div>
         </div>
@@ -174,9 +176,43 @@ export const Navbar = () => {
               </a>
             ))}
             <div
-              className="py-3 px-6 rounded-xl w-full flex justify-center"
+              className="w-full pt-2"
               style={{
                 transitionDelay: isMenuOpen ? `${navItems.length * 60}ms` : "0ms",
+                transform: isMenuOpen ? "translateX(0)" : "translateX(-20px)",
+                opacity: isMenuOpen ? 1 : 0,
+                transition: "transform 300ms ease, opacity 250ms ease",
+              }}
+            >
+              <p className="text-xs uppercase tracking-wider text-muted-foreground/60 mb-2">
+                Resume
+              </p>
+              <div className="grid grid-cols-2 gap-2 w-full">
+                <a
+                  href="/assets/Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-primary/40 text-primary bg-primary/5 hover:bg-primary/15 transition-colors duration-200 text-base font-medium"
+                >
+                  <ExternalLink size={16} />
+                  Open
+                </a>
+                <a
+                  href="/assets/Resume.pdf"
+                  download="Resume.pdf"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-primary/40 text-primary bg-primary/5 hover:bg-primary/15 transition-colors duration-200 text-base font-medium"
+                >
+                  <Download size={16} />
+                  Download
+                </a>
+              </div>
+            </div>
+            <div
+              className="py-3 px-6 rounded-xl w-full flex justify-center"
+              style={{
+                transitionDelay: isMenuOpen ? `${(navItems.length + 1) * 60}ms` : "0ms",
                 transform: isMenuOpen ? "translateX(0)" : "translateX(-20px)",
                 opacity: isMenuOpen ? 1 : 0,
                 transition: "transform 300ms ease, opacity 250ms ease",

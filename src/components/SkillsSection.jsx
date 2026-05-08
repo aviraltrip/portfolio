@@ -142,8 +142,12 @@ export const SkillsSection = () => {
   );
 
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30" ref={sectionRef}>
-      <div className="container mx-auto max-w-5xl">
+    <section id="skills" className="py-24 px-4 relative overflow-hidden bg-secondary/30" ref={sectionRef}>
+      {/* Ambient blobs */}
+      <div className="absolute top-16 left-10 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl animate-pulse pointer-events-none" />
+      <div className="absolute bottom-16 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000 pointer-events-none" />
+
+      <div className="container mx-auto max-w-5xl relative z-10">
         <h2 className="section-heading">
           My <span className="text-gradient">Skills</span>
         </h2>
