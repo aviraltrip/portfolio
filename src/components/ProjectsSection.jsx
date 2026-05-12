@@ -15,13 +15,13 @@ const projects = [
   },
   {
     id: 2,
-    title: "MedSummary",
+    title: "PulsePoint - AI Family Health Network",
     description:
-      "AI medical-report explainer with RAG-grounded plain-English summaries, OCR ingest for PDFs and scans, and one-click language translation.",
-    image: "/projects/medsum.png",
-    tags: ["Next.js", "TypeScript", "RAG", "AssemblyAI"],
-    demoUrl: "https://medsummary-five.vercel.app/",
-    githubUrl: "https://github.com/akshatXD-hash/MedSummary",
+      "Clinical triage engine pairing LightGBM severity classification with SHAP-explainable reasoning, RAG-grounded WHO/MOHFW guidelines & a LoRA-tuned Llama 3.1 with hallucination guards",
+    image: "/projects/pulsepoint.png",
+    tags: ["Python", "FastAPI", "LightGBM", "RAG"],
+    demoUrl: "https://pulsepoint-zeta.vercel.app/",
+    githubUrl: "https://github.com/aviraltrip/AIML-MedAI",
     featured: true,
   },
   {
@@ -39,7 +39,7 @@ const projects = [
     id: 4,
     title: "HealthDesk: AI-Powered Telemedicine",
     description:
-      "Pharmacist Control Panel with real-time, geolocation-based medicine availability and automated stock notifications. Dynamic routing via Next.js.",
+      "Built a Pharmacist Control Panel with real-time, geolocation-based medicine availability and automated stock notifications. Dynamic routing via Next.js.",
     image: "/projects/healthdesk.png",
     tags: ["ReactJS", "NextJS", "Tailwind CSS"],
     demoUrl: "https://axios-tawny-tau.vercel.app/",
