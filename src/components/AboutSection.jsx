@@ -1,4 +1,4 @@
-import { Briefcase, Code, User } from "lucide-react";
+import { Briefcase, Brain, Zap } from "lucide-react";
 import { ResumeButton } from "./ResumeButton";
 
 export const AboutSection = () => {
@@ -17,13 +17,12 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Passionate Web Developer
+              Full-Stack Systems Builder
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              I specialize in creating responsive, accessible and high-performance
-              web applications using modern technology. I'm passionate about
-              crafting elegant solutions to complex problems and delivering
-              exceptional user experiences.
+              I bridge the gap between complex database architectures and fluid, 
+              responsive interfaces. I focus on writing clean, scalable code 
+              and optimizing every layer of the system for peak performance.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -38,19 +37,19 @@ export const AboutSection = () => {
           <div className="grid grid-cols-1 gap-5">
             {[
               {
-                icon: Code,
-                title: "Web Development",
-                desc: "Creating responsive websites and web applications with modern frameworks like React and Next.js.",
+                icon: Brain,
+                title: "Intelligent Systems",
+                desc: "Integrating fine-tuned LLMs, classification models, and RAG pipelines to build context-aware, smart products.",
               },
               {
-                icon: User,
-                title: "UI/UX Design",
-                desc: "Designing intuitive user interfaces and seamless user experiences with a focus on accessibility.",
+                icon: Zap,
+                title: "Real-Time Systems",
+                desc: "Developing low-latency coordination engines, event-driven communications, and live tracking interfaces.",
               },
               {
                 icon: Briefcase,
-                title: "Full-Stack Projects",
-                desc: "End-to-end development from database schema to polished frontend using the MERN stack.",
+                title: "Full-Stack Development",
+                desc: "Designing robust database schemas, secure backend APIs, and performant, server-rendered dashboards.",
               },
             ].map(({ icon: Icon, title, desc }) => (
               <div
