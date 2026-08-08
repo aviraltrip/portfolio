@@ -31,8 +31,8 @@ const projects = [
       "ML-powered deck analyzer predicting Clash Royale win rates against the live meta. Built an MLP classifier with LOO card swap recommendations and Wilson Score reliability ranking.",
     image: "/projects/clashroyale.png",
     tags: ["Python", "Scikit-Learn", "MLP Classifier", "Data Scraping"],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl: "https://cr-analytics-five.vercel.app/",
+    githubUrl: "https://github.com/aviraltrip/CR_ML_Analytics",
     featured: true,
   },
   {
