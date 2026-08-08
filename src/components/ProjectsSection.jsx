@@ -26,6 +26,17 @@ const projects = [
   },
   {
     id: 3,
+    title: "Clash Royale Analytics: ML Deck Analyzer & Predictor",
+    description:
+      "ML-powered deck analyzer predicting Clash Royale win rates against the live meta. Built an MLP classifier with LOO card swap recommendations and Wilson Score reliability ranking.",
+    image: "/projects/clashroyale.png",
+    tags: ["Python", "Scikit-Learn", "MLP Classifier", "Data Scraping"],
+    demoUrl: "#",
+    githubUrl: "#",
+    featured: true,
+  },
+  {
+    id: 4,
     title: "OnlyTechs: Leaderboard Platform",
     description:
       "Skill-based rankings dashboard with backend API integration and efficient pagination. Performance-focused interface using Next.js.",
@@ -36,7 +47,7 @@ const projects = [
     featured: false,
   },
   {
-    id: 4,
+    id: 5,
     title: "HealthDesk: AI-Powered Telemedicine",
     description:
       "Built a Pharmacist Control Panel with real-time, geolocation-based medicine availability and automated stock notifications. Dynamic routing via Next.js.",
@@ -47,7 +58,7 @@ const projects = [
     featured: true,
   },
   {
-    id: 5,
+    id: 6,
     title: "Coming Soon",
     description: "Something new is in the works. Stay tuned!",
     image: null,
