@@ -24,8 +24,8 @@ const buildParticles = () => {
         Math.random() > 0.5
           ? "blue"
           : Math.random() > 0.5
-          ? "purple"
-          : "indigo",
+            ? "purple"
+            : "indigo",
     });
   }
   return newParticles;
@@ -69,7 +69,7 @@ export const LightThemeBackground = () => {
   }, []);
 
   const getParticleColorClass = (color) => {
-    switch(color) {
+    switch (color) {
       case 'blue':
         return 'bg-blue-400';
       case 'purple':
@@ -82,7 +82,7 @@ export const LightThemeBackground = () => {
   };
 
   const getShapeColorClass = (color) => {
-    switch(color) {
+    switch (color) {
       case 'blue':
         return 'bg-blue-200/20';
       case 'purple':
@@ -93,15 +93,14 @@ export const LightThemeBackground = () => {
         return 'bg-blue-200/20';
     }
   };
-  
+
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       {floatingShapes.map((shape) => (
         <div
           key={shape.id}
-          className={`absolute ${getShapeColorClass(shape.color)} ${
-            shape.shape === 'circle' ? 'rounded-full' : 'rounded-3xl'
-          } blur-3xl animate-float-slow`}
+          className={`absolute ${getShapeColorClass(shape.color)} ${shape.shape === 'circle' ? 'rounded-full' : 'rounded-3xl'
+            } blur-3xl animate-float-slow`}
           style={{
             width: shape.size + "px",
             height: shape.size + "px",
@@ -115,13 +114,12 @@ export const LightThemeBackground = () => {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className={`absolute rounded-full ${getParticleColorClass(particle.color)} ${
-            particle.type === 'large' 
-              ? 'animate-pulse shadow-md shadow-blue-300/50' 
+          className={`absolute rounded-full ${getParticleColorClass(particle.color)} ${particle.type === 'large'
+              ? 'animate-pulse shadow-md shadow-blue-300/50'
               : particle.type === 'medium'
-              ? 'animate-pulse'
-              : 'animate-twinkle'
-          }`}
+                ? 'animate-pulse'
+                : 'animate-twinkle'
+            }`}
           style={{
             width: particle.size + "px",
             height: particle.size + "px",

@@ -105,11 +105,11 @@ const ProjectCard = ({ project, index }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Gradient glow border */}
+
       <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-30 blur-md transition-all duration-500" />
 
       <div className="relative bg-card rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-all duration-500 h-full flex flex-col hover:shadow-2xl hover:shadow-primary/10">
-        {/* Image with overlay */}
+
         <div className="relative h-48 overflow-hidden bg-muted">
           <img
             src={project.image}
@@ -118,7 +118,7 @@ const ProjectCard = ({ project, index }) => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-          {/* Action buttons on hover */}
+
           <div className="absolute bottom-0 left-0 right-0 p-4 flex gap-2 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
             {project.demoUrl && project.demoUrl !== "#" && (
               <a
@@ -146,13 +146,13 @@ const ProjectCard = ({ project, index }) => {
             )}
           </div>
 
-          {/* Shimmer effect */}
+
           <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-12 pointer-events-none" />
         </div>
 
-        {/* Card body */}
+
         <div className="p-6 flex flex-col flex-grow">
-          {/* Tags */}
+
           <div className="flex flex-wrap gap-1.5 mb-4">
             {project.tags.map((tag, i) => (
               <span
@@ -172,7 +172,7 @@ const ProjectCard = ({ project, index }) => {
             {project.description}
           </p>
 
-          {/* Footer links */}
+
           <div className="flex justify-between items-center pt-4 border-t border-border/40 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
             <div className="flex space-x-4">
               {project.demoUrl && (
@@ -254,7 +254,7 @@ export const ProjectsSection = () => {
         </h2>
 
         <div className="relative mb-10">
-          {/* Edge fades */}
+
           <div
             className={cnFade(canScrollLeft, "left")}
             aria-hidden="true"
@@ -264,7 +264,7 @@ export const ProjectsSection = () => {
             aria-hidden="true"
           />
 
-          {/* Arrow buttons */}
+
           <button
             type="button"
             onClick={() => scrollByCard(-1)}
@@ -284,7 +284,7 @@ export const ProjectsSection = () => {
             <ChevronRight size={20} />
           </button>
 
-          {/* Carousel track */}
+
           <div
             ref={trackRef}
             className="projects-carousel flex gap-7 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 px-1 -mx-1"
@@ -326,8 +326,6 @@ export const ProjectsSection = () => {
 };
 
 const cnFade = (active, side) =>
-  `pointer-events-none absolute top-0 bottom-6 ${
-    side === "left" ? "left-0" : "right-0"
-  } w-16 z-10 transition-opacity duration-500 ${
-    active ? "opacity-100" : "opacity-0"
+  `pointer-events-none absolute top-0 bottom-6 ${side === "left" ? "left-0" : "right-0"
+  } w-16 z-10 transition-opacity duration-500 ${active ? "opacity-100" : "opacity-0"
   } bg-gradient-to-${side === "left" ? "r" : "l"} from-background to-transparent`;

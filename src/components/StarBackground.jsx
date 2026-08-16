@@ -22,8 +22,8 @@ const buildStars = () => {
         Math.random() > 0.9
           ? "blue"
           : Math.random() > 0.95
-          ? "purple"
-          : "white",
+            ? "purple"
+            : "white",
     });
   }
   return newStars;
@@ -58,14 +58,14 @@ export const StarBackground = () => {
 
     setShootingStars(prev => [...prev, newShootingStar]);
 
-    // Remove shooting star after animation completes
+
     setTimeout(() => {
       setShootingStars(prev => prev.filter(star => star.id !== id));
     }, 2000);
   };
 
   const getStarColorClass = (color) => {
-    switch(color) {
+    switch (color) {
       case 'blue':
         return 'bg-blue-300';
       case 'purple':
@@ -74,20 +74,19 @@ export const StarBackground = () => {
         return 'bg-white';
     }
   };
-  
+
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      {/* Regular stars with multiple layers */}
+
       {stars.map((star) => (
         <div
           key={star.id}
-          className={`absolute rounded-full ${getStarColorClass(star.color)} ${
-            star.type === 'large' 
-              ? 'animate-pulse shadow-lg shadow-white/50' 
+          className={`absolute rounded-full ${getStarColorClass(star.color)} ${star.type === 'large'
+              ? 'animate-pulse shadow-lg shadow-white/50'
               : star.type === 'medium'
-              ? 'animate-pulse'
-              : ''
-          }`}
+                ? 'animate-pulse'
+                : ''
+            }`}
           style={{
             width: star.size + "px",
             height: star.size + "px",
@@ -98,14 +97,14 @@ export const StarBackground = () => {
             animationDelay: star.animationDelay + "s",
           }}
         >
-          {/* Glow effect for larger stars */}
+
           {star.type === 'large' && (
             <div className="absolute inset-0 rounded-full bg-white/30 blur-sm scale-150" />
           )}
         </div>
       ))}
 
-      {/* Shooting stars */}
+
       {shootingStars.map((star) => (
         <div
           key={star.id}

@@ -6,7 +6,7 @@ export const HeroSection = () => {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-4"
     >
-      {/* Ambient glow behind hero text */}
+
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container max-w-4xl mx-auto text-center z-10">
@@ -34,7 +34,7 @@ export const HeroSection = () => {
             </a>
           </div>
 
-          {/* Social quick links */}
+
           <div className="opacity-0 animate-fade-in-delay-4 flex items-center justify-center gap-5 pt-2">
             {[
               { href: "https://github.com/aviraltrip", icon: Github, label: "GitHub" },

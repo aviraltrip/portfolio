@@ -5,7 +5,7 @@ export const AboutSection = () => {
 
   return (
     <section id="about" className="py-24 px-4 relative overflow-hidden">
-      {/* Ambient blobs */}
+
       <div className="absolute top-24 right-10 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000 pointer-events-none" />
 
@@ -20,8 +20,8 @@ export const AboutSection = () => {
               Full-Stack Systems Builder
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              I bridge the gap between complex database architectures and fluid, 
-              responsive interfaces. I focus on writing clean, scalable code 
+              I bridge the gap between complex database architectures and fluid,
+              responsive interfaces. I focus on writing clean, scalable code
               and optimizing every layer of the system for peak performance.
             </p>
 

@@ -11,9 +11,6 @@
 
   --color-card: hsl(var(--card));
 
-  /* Additional semantic colors to align Tailwind tokens
-     like bg-secondary, text-muted-foreground, border-input, etc.
-     with the existing palette. */
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
   --color-muted: hsl(var(--muted));
@@ -36,67 +33,103 @@
   --animate-blink: blink-cursor 1s step-end infinite;
 
   @keyframes float {
+
     0%,
     100% {
       transform: translateY(0);
     }
+
     50% {
       transform: translateY(-10px);
     }
   }
+
   @keyframes pulse-subtle {
+
     0%,
     100% {
       opacity: 1;
     }
+
     50% {
       opacity: 0.8;
     }
   }
+
   @keyframes fade-in {
     from {
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
+
   @keyframes meteor {
     0% {
       transform: rotate(215deg) translateX(0);
       opacity: 1;
     }
+
     70% {
       opacity: 1;
     }
+
     100% {
       transform: rotate(215deg) translateX(-500px);
       opacity: 0;
     }
   }
+
   @keyframes slide-up-fade {
     from {
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
+
   @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
   }
+
   @keyframes blink-cursor {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
   }
+
   @keyframes count-up {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
@@ -104,22 +137,16 @@
   :root {
     --background: 220 20% 97%;
     --foreground: 222 84% 4.9%;
-    --card: 0 0% 100%;           
-    --primary: 210 85% 55%;      
+    --card: 0 0% 100%;
+    --primary: 210 85% 55%;
     --primary-foreground: 0 0% 100%;
-    --border: 220 15% 88%;       
-
-    /* Subtle, on-brand support colors for surfaces and text */
+    --border: 220 15% 88%;
     --secondary: 220 30% 96%;
     --secondary-foreground: 222 84% 10%;
     --muted: 220 15% 94%;
     --muted-foreground: 222 12% 38%;
-
-    /* Form + focus tokens */
     --input: 220 15% 88%;
     --ring: 210 85% 60%;
-
-    /* Destructive actions (used by toast variant) */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
   }
@@ -128,8 +155,8 @@
     --background: 222 47% 4%;
     --foreground: 213 31% 91%;
     --card: 222 47% 8%;
-    --primary: 210 85% 60%;          
-    --primary-foreground: 0 0% 100%; 
+    --primary: 210 85% 60%;
+    --primary-foreground: 0 0% 100%;
     --border: 217 33% 20%;
 
     --secondary: 222 47% 8%;
@@ -158,27 +185,36 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  :root { color-scheme: light; }
-  .dark { color-scheme: dark; }
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
 }
 
 @utility container {
   margin-inline: auto;
   padding-inline: 2rem;
 
-  @media (width >= 640px) {
+  @media (width >=640px) {
     max-width: 640px;
   }
-  @media (width >= 768px) {
+
+  @media (width >=768px) {
     max-width: 768px;
   }
-  @media (width >= 1024px) {
+
+  @media (width >=1024px) {
     max-width: 1024px;
   }
-  @media (width >= 1280px) {
+
+  @media (width >=1280px) {
     max-width: 1280px;
   }
-  @media (width >= 1400px) {
+
+  @media (width >=1400px) {
     max-width: 1400px;
   }
 }
@@ -200,9 +236,7 @@
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
-         transition-all duration-300 hover:shadow-[0_0_18px_rgba(139,92,246,0.6)] 
-         hover:scale-105 active:scale-95;
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium transition-all duration-300 hover:shadow-[0_0_18px_rgba(139, 92, 246, 0.6)] hover:scale-105 active:scale-95;
 }
 
 @utility star {
@@ -241,7 +275,6 @@
   padding: 0;
 }
 
-/* Shared animation helpers for background effects and subtle polish */
 @utility reveal-on-scroll {
   opacity: 0;
   transform: translateY(20px);
@@ -254,27 +287,33 @@
 }
 
 @keyframes float-slow {
+
   0%,
   100% {
     transform: translateY(0) translateX(0);
   }
+
   25% {
     transform: translateY(-20px) translateX(10px);
   }
+
   50% {
     transform: translateY(-10px) translateX(-10px);
   }
+
   75% {
     transform: translateY(-30px) translateX(5px);
   }
 }
 
 @keyframes twinkle {
+
   0%,
   100% {
     opacity: 0.2;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.5;
     transform: scale(1.2);
@@ -293,7 +332,6 @@
   animation: twinkle 3s ease-in-out infinite;
 }
 
-/* Skill card hover polish */
 .skill-card {
   will-change: transform, box-shadow;
   transform-style: preserve-3d;
@@ -304,12 +342,10 @@
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
-  background: linear-gradient(
-    115deg,
-    transparent 30%,
-    hsl(var(--primary) / 0.18) 50%,
-    transparent 70%
-  );
+  background: linear-gradient(115deg,
+      transparent 30%,
+      hsl(var(--primary) / 0.18) 50%,
+      transparent 70%);
   background-size: 250% 100%;
   background-position: -150% 0;
   opacity: 0;
@@ -322,11 +358,15 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .skill-card__sheen { display: none; }
-  .skill-card:hover { transform: none !important; }
+  .skill-card__sheen {
+    display: none;
+  }
+
+  .skill-card:hover {
+    transform: none !important;
+  }
 }
 
-/* Projects carousel */
 .projects-carousel {
   scroll-padding-inline: 1rem;
   scrollbar-width: none;
@@ -337,11 +377,13 @@
   display: none;
 }
 
-.projects-carousel > [data-project-card] {
+.projects-carousel>[data-project-card] {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.5s ease;
+    opacity 0.5s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .projects-carousel { scroll-behavior: auto; }
+  .projects-carousel {
+    scroll-behavior: auto;
+  }
 }

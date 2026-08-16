@@ -70,7 +70,7 @@ export const Navbar = () => {
       )}
     >
       <div className="container mx-auto px-4 h-full flex items-center">
-        {/* Logo */}
+
         <a
           className="text-xl font-bold flex items-center relative z-50 h-full group"
           href="#hero"
@@ -84,7 +84,7 @@ export const Navbar = () => {
 
         <div className="flex-grow" />
 
-        {/* Desktop Nav */}
+
         <div className="hidden md:flex items-center space-x-1 h-full">
           {navItems.map((item) => (
             <a
@@ -109,7 +109,7 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile menu button */}
+
         <div className="md:hidden relative z-50">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -136,7 +136,7 @@ export const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Nav Overlay */}
+
         <div
           className={cn(
             "fixed top-0 left-0 w-full h-screen z-40",

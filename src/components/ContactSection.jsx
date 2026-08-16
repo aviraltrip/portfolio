@@ -169,7 +169,7 @@ export const ContactSection = () => {
 
   return (
     <section id="contact" className="py-24 px-4 relative overflow-hidden bg-secondary/30">
-      {/* Ambient blobs */}
+
       <div className="absolute top-20 right-10 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl animate-pulse pointer-events-none" />
       <div className="absolute bottom-20 left-10 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000 pointer-events-none" />
 
@@ -184,7 +184,7 @@ export const ContactSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Left — glass info panel */}
+
           <div className="glass-card p-8 space-y-8 flex flex-col justify-between">
             <div>
               <h3 className="text-2xl font-semibold mb-8">
@@ -192,7 +192,7 @@ export const ContactSection = () => {
               </h3>
 
               <div className="space-y-6">
-                {/* Email */}
+
                 <div className="flex items-center gap-4 group">
                   <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 shrink-0">
                     <Mail className="h-5 w-5 text-primary" />
@@ -208,7 +208,7 @@ export const ContactSection = () => {
                   </div>
                 </div>
 
-                {/* Location */}
+
                 <div className="flex items-center gap-4 group">
                   <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 shrink-0">
                     <MapPin className="h-5 w-5 text-primary" />
@@ -223,7 +223,7 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            {/* Social links */}
+
             <div>
               <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-4">
                 Connect With Me
@@ -250,7 +250,7 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          {/* Right — contact form */}
+
           <div className="glass-card p-8">
             <h3 className="text-2xl font-semibold mb-6">
               Send a <span className="text-primary">Message</span>
