@@ -96,10 +96,6 @@ export const Navbar = () => {
               )}
             >
               {item.name}
-              <span className={cn(
-                "absolute bottom-0 left-0 h-0.5 bg-primary rounded-full transition-all duration-300",
-                activeSection === item.id ? "w-full" : "w-0 group-hover/nav:w-full"
-              )} />
             </a>
           ))}
           <div className="ml-3 flex items-center gap-3 h-full">

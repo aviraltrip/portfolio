@@ -1,9 +1,9 @@
-import { Github, Linkedin, Twitter, Code2 } from "lucide-react";
+import { Github, Linkedin, Zap, Code2 } from "lucide-react";
 
 const socials = [
   { href: "https://github.com/aviraltrip", icon: Github, label: "Github" },
   { href: "https://www.linkedin.com/in/aviral-tripathi-836763204/", icon: Linkedin, label: "LinkedIn" },
-  { href: "https://x.com/AviralTrip2503", icon: Twitter, label: "X" },
+  { href: "https://codeforces.com/profile/aviraltrip", icon: Zap, label: "Codeforces" },
   { href: "https://leetcode.com/u/aviraltrip/", icon: Code2, label: "LeetCode" }
 ];
 
@@ -11,7 +11,7 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="pt-32 pb-16 px-4 max-w-3xl mx-auto z-10 animate-fade-in"
+      className="pt-32 pb-10 px-4 max-w-3xl mx-auto z-10 animate-fade-in"
     >
       <div className="space-y-8 text-left">
         {/* Profile Avatar and Name */}
@@ -34,7 +34,7 @@ export const HeroSection = () => {
         {/* Bio Description */}
         <div className="space-y-4">
           <p className="text-base text-foreground leading-relaxed">
-            I build <strong>scalable web applications</strong> and <strong>AI-powered tools</strong> using JavaScript, React, Node.js, and MongoDB. Specialized in database architectures, writing clean, optimized code, and bridging the gap between back-end systems and fluid, responsive interfaces.
+            I build <strong>scalable web applications</strong> and <strong>AI-powered tools</strong> using the <strong>MERN/PERN stack</strong>. Specialized in database architectures, writing clean, optimized code, and bridging the gap between back-end systems and fluid, responsive interfaces.
           </p>
         </div>
 

@@ -49,8 +49,8 @@ const contributions = [
 
 export const OpenSourceSection = () => {
   return (
-    <section id="opensource" className="py-24 px-4 relative overflow-hidden">
-      <div className="container mx-auto max-w-4xl relative z-10">
+    <section id="opensource" className="pt-12 pb-12 px-4 relative overflow-hidden">
+      <div className="container mx-auto max-w-3xl relative z-10">
         <h2 className="section-heading">
           Open <span className="text-gradient">Source</span>
         </h2>

@@ -137,13 +137,13 @@ export const SkillsSection = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-16 px-4 relative overflow-hidden" ref={sectionRef}>
+    <section id="skills" className="pt-10 pb-12 px-4 relative overflow-hidden" ref={sectionRef}>
 
 
 
-      <div className="container mx-auto max-w-5xl relative z-10">
+      <div className="container mx-auto max-w-3xl relative z-10">
         <h2 className="section-heading">
-          Skills & Technologies
+          Skills & <span className="text-gradient">Technologies</span>
         </h2>
         <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
           {skills.map((skill, index) => {

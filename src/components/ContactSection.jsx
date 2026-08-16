@@ -1,12 +1,7 @@
 import {
-  Github,
-  Linkedin,
   Mail,
   MapPin,
   Send,
-  Twitter,
-  Code2,
-  Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -91,38 +86,7 @@ const FloatingTextarea = ({ id, name, label, rows = 4, required }) => {
   );
 };
 
-const socialLinks = [
-  {
-    href: "https://www.linkedin.com/in/aviral-tripathi-836763204/",
-    icon: Linkedin,
-    label: "LinkedIn",
-    color: "hover:text-primary",
-  },
-  {
-    href: "https://x.com/AviralTrip2503",
-    icon: Twitter,
-    label: "X / Twitter",
-    color: "hover:text-primary",
-  },
-  {
-    href: "https://github.com/aviraltrip",
-    icon: Github,
-    label: "GitHub",
-    color: "hover:text-primary",
-  },
-  {
-    href: "https://leetcode.com/u/aviraltrip/",
-    icon: Code2,
-    label: "LeetCode",
-    color: "hover:text-primary",
-  },
-  {
-    href: "https://codeforces.com/profile/aviraltrip",
-    icon: Zap,
-    label: "Codeforces",
-    color: "hover:text-primary",
-  },
-];
+
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -168,36 +132,36 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 relative overflow-hidden">
+    <section id="contact" className="pt-12 pb-12 px-4 relative overflow-hidden">
 
 
 
-      <div className="container mx-auto max-w-5xl relative z-10">
-        <h2 className="section-heading">
+      <div className="container mx-auto max-w-3xl relative z-10">
+        <h2 className="section-heading text-center md:text-left">
           Get In <span className="text-gradient">Touch</span>
         </h2>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+        <p className="text-center md:text-left text-muted-foreground mb-8 max-w-2xl mx-auto md:mx-0">
           Have a project in mind or want to collaborate? I'm always open to
           discussing new opportunities.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-          <div className="glass-card p-8 space-y-8 flex flex-col justify-between">
+          <div className="glass-card p-5 space-y-4 flex flex-col justify-between">
             <div>
-              <h3 className="text-2xl font-semibold mb-8">
+              <h3 className="text-lg font-semibold mb-4">
                 Contact Information
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-4">
 
-                <div className="flex items-center gap-4 group">
-                  <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 shrink-0">
-                    <Mail className="h-5 w-5 text-primary" />
+                <div className="flex items-center gap-3 group">
+                  <div className="p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 shrink-0">
+                    <Mail className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-0.5">Email</p>
+                    <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wide mb-0.5">Email</p>
                     <a
                       href="mailto:aviraltripathi25@gmail.com"
                       className="text-sm font-medium hover:text-primary transition-colors duration-200"
@@ -208,12 +172,12 @@ export const ContactSection = () => {
                 </div>
 
 
-                <div className="flex items-center gap-4 group">
-                  <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 shrink-0">
-                    <MapPin className="h-5 w-5 text-primary" />
+                <div className="flex items-center gap-3 group">
+                  <div className="p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 shrink-0">
+                    <MapPin className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-0.5">Location</p>
+                    <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wide mb-0.5">Location</p>
                     <span className="text-sm font-medium">
                       Greater Noida, Uttar Pradesh, India
                     </span>
@@ -221,49 +185,24 @@ export const ContactSection = () => {
                 </div>
               </div>
             </div>
-
-
-            <div>
-              <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-4">
-                Connect With Me
-              </p>
-              <div className="flex gap-3 flex-wrap">
-                {socialLinks.map(({ href, icon: Icon, label, color }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className={cn(
-                      "p-2.5 rounded-xl border border-border/50 bg-background/50 text-muted-foreground",
-                      "transition-all duration-300 hover:scale-110 hover:border-primary/30",
-                      color
-                    )}
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
 
 
-          <div className="glass-card p-8">
-            <h3 className="text-2xl font-semibold mb-6">
+          <div className="glass-card p-5">
+            <h3 className="text-lg font-semibold mb-4">
               Send a <span className="text-primary">Message</span>
             </h3>
 
-            <form ref={form} onSubmit={handleSubmit} className="space-y-5">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-3.5">
               <FloatingInput id="user_name" name="name" label="Your Name" required />
               <FloatingInput id="user_email" name="email" label="Your Email" type="email" required />
-              <FloatingTextarea id="message" name="message" label="Your Message" rows={5} required />
+              <FloatingTextarea id="message" name="message" label="Your Message" rows={4} required />
 
               <button
                 type="submit"
                 disabled={isSubmitting}
                 className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2",
+                  "cosmic-button w-full py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm",
                   isSubmitting && "opacity-60 cursor-not-allowed"
                 )}
               >
@@ -275,7 +214,7 @@ export const ContactSection = () => {
                 ) : (
                   <>
                     Send Message
-                    <Send size={15} />
+                    <Send size={14} />
                   </>
                 )}
               </button>

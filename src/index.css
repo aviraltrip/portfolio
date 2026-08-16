@@ -258,7 +258,7 @@
 }
 
 @utility section-heading {
-  @apply text-3xl md:text-4xl font-bold mb-12 text-center tracking-tight;
+  @apply text-2xl md:text-3xl font-bold mb-12 text-center tracking-tight;
 }
 
 
