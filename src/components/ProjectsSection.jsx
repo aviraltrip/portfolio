@@ -38,6 +38,17 @@ const projects = [
   },
   {
     id: 4,
+    title: "OnlyTechs: Leaderboard Platform",
+    description:
+      "Skill-based rankings dashboard featuring backend API integration, efficient pagination, and responsive layouts.",
+    image: "/projects/onlytechs.png",
+    tags: ["React", "Next.js", "Tailwind CSS"],
+    demoUrl: "https://onlytechs.vercel.app/",
+    githubUrl: "#",
+    featured: true,
+  },
+  {
+    id: 5,
     title: "HealthDesk: AI Telemedicine",
     description:
       "Pharmacist telemedicine dashboard featuring real-time, geolocation-based medicine availability and automated stock notifications.",
@@ -57,9 +68,6 @@ const ProjectCard = ({ project, index }) => {
     >
       {/* Preview Frame */}
       <div className="relative aspect-video w-full rounded-xl border border-border/50 bg-[#16161a] p-2.5 overflow-hidden mb-4 group-hover:border-primary/30 transition-all duration-300">
-        <div className="absolute top-2 left-2 text-[10px] text-muted-foreground uppercase tracking-wider font-semibold z-10 bg-background/80 px-2 py-0.5 rounded backdrop-blur-xs">
-          Preview
-        </div>
         <div className="w-full h-full rounded-lg border border-border/30 bg-[#0e0e11] overflow-hidden relative group-hover:shadow-lg transition-all duration-300">
           {/* Browser window header frame mock */}
           <div className="h-5 w-full bg-[#1c1c21] border-b border-border/20 flex items-center px-2 gap-1 shrink-0">
@@ -136,13 +144,13 @@ const ProjectCard = ({ project, index }) => {
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="pt-12 pb-12 px-4 relative overflow-hidden">
+    <section id="projects" className="scroll-mt-20 pt-12 pb-12 px-4 relative overflow-hidden">
       <div className="container mx-auto max-w-3xl relative z-10">
         <h2 className="section-heading">
           Featured <span className="text-gradient">Projects</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
           {projects.map((project, index) => (
             <div
               key={project.id}
@@ -156,19 +164,6 @@ export const ProjectsSection = () => {
               <ProjectCard project={project} index={index} />
             </div>
           ))}
-        </div>
-
-        <div className="text-center">
-          <a
-            className="cosmic-button w-fit inline-flex items-center gap-2"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/aviraltrip"
-          >
-            <Github size={16} />
-            View All on GitHub
-            <ArrowRight size={16} />
-          </a>
         </div>
       </div>
     </section>

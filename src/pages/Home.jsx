@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "../components/Navbar";
 import { StarBackground } from "@/components/StarBackground";
-import { LightThemeBackground } from "@/components/LightThemeBackground"; // ADD THIS
+import { LightThemeBackground } from "@/components/LightThemeBackground";
 import { HeroSection } from "../components/HeroSection";
 import { SkillsSection } from "../components/SkillsSection";
 import { ProjectsSection } from "../components/ProjectsSection";

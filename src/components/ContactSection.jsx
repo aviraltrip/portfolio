@@ -132,7 +132,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="pt-12 pb-12 px-4 relative overflow-hidden">
+    <section id="contact" className="scroll-mt-20 pt-12 pb-12 px-4 relative overflow-hidden">
 
 
 
@@ -141,7 +141,7 @@ export const ContactSection = () => {
           Get In <span className="text-gradient">Touch</span>
         </h2>
 
-        <p className="text-center md:text-left text-muted-foreground mb-8 max-w-2xl mx-auto md:mx-0">
+        <p className="text-center md:text-left text-muted-foreground mb-8 max-w-2xl mx-auto md:mx-0 pl-1">
           Have a project in mind or want to collaborate? I'm always open to
           discussing new opportunities.
         </p>
