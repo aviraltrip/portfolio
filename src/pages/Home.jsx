@@ -3,9 +3,9 @@ import { Navbar } from "../components/Navbar";
 import { StarBackground } from "@/components/StarBackground";
 import { LightThemeBackground } from "@/components/LightThemeBackground"; // ADD THIS
 import { HeroSection } from "../components/HeroSection";
-import { AboutSection } from "../components/AboutSection";
 import { SkillsSection } from "../components/SkillsSection";
 import { ProjectsSection } from "../components/ProjectsSection";
+import { OpenSourceSection } from "../components/OpenSourceSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 
@@ -33,9 +33,9 @@ export const Home = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <AboutSection />
         <SkillsSection />
         <ProjectsSection />
+        <OpenSourceSection />
         <ContactSection />
       </main>
       <Footer />

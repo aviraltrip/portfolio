@@ -1,71 +1,66 @@
-import { ArrowDown, ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter, Code2 } from "lucide-react";
+
+const socials = [
+  { href: "https://github.com/aviraltrip", icon: Github, label: "Github" },
+  { href: "https://www.linkedin.com/in/aviral-tripathi-836763204/", icon: Linkedin, label: "LinkedIn" },
+  { href: "https://x.com/AviralTrip2503", icon: Twitter, label: "X" },
+  { href: "https://leetcode.com/u/aviraltrip/", icon: Code2, label: "LeetCode" }
+];
 
 export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4"
+      className="pt-32 pb-16 px-4 max-w-3xl mx-auto z-10 animate-fade-in"
     >
-
-
-
-      <div className="container max-w-4xl mx-auto text-center z-10">
-        <div className="space-y-10">
-
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance">
-            <span className="opacity-0 animate-fade-in">Hi, I'm</span>
-            <span className="text-gradient opacity-0 animate-fade-in-delay-1">
-              {" "}Aviral
-            </span>
-          </h1>
-
-
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3 text-balance">
-            Full-stack developer building scalable web apps and AI-powered tools that turn ideas into real, usable products.
-          </p>
-
-          <div className="flex items-center justify-center opacity-0 animate-fade-in-delay-4">
-            <a
-              href="#projects"
-              className="px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium inline-flex items-center group transition-all duration-300 hover:bg-primary/95 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
-            >
-              View My Work
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
-            </a>
+      <div className="space-y-8 text-left">
+        {/* Profile Avatar and Name */}
+        <div className="flex items-center gap-5">
+          <img
+            src="https://github.com/aviraltrip.png"
+            alt="Aviral Tripathi"
+            className="w-20 h-20 rounded-full border border-border/60 object-cover shadow-sm bg-muted"
+          />
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight text-foreground">
+              Aviral Tripathi
+            </h1>
+            <p className="text-muted-foreground font-medium text-sm mt-0.5">
+              Full Stack Engineer
+            </p>
           </div>
+        </div>
+
+        {/* Bio Description */}
+        <div className="space-y-4">
+          <p className="text-base text-foreground leading-relaxed">
+            I build <strong>scalable web applications</strong> and <strong>AI-powered tools</strong> using JavaScript, React, Node.js, and MongoDB. Specialized in database architectures, writing clean, optimized code, and bridging the gap between back-end systems and fluid, responsive interfaces.
+          </p>
+        </div>
 
 
-          <div className="opacity-0 animate-fade-in-delay-4 flex items-center justify-center gap-5 pt-2">
-            {[
-              { href: "https://github.com/aviraltrip", icon: Github, label: "GitHub" },
-              { href: "https://www.linkedin.com/in/aviral-tripathi-836763204/", icon: Linkedin, label: "LinkedIn" },
-              { href: "https://x.com/AviralTrip2503", icon: Twitter, label: "Twitter" },
-            ].map(({ href, icon: Icon, label }) => (
+
+        {/* Social Badges */}
+        <div className="pt-4 border-t border-border/40">
+          <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider mb-3">
+            Here are my socials
+          </p>
+          <div className="flex gap-2 flex-wrap">
+            {socials.map(({ href, icon: Icon, label }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={label}
-                className="p-2 rounded-full border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 hover:scale-110"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border/50 bg-card/45 hover:bg-secondary/40 hover:scale-105 transition-all duration-300 text-xs font-medium text-muted-foreground hover:text-primary hover:border-primary/45"
               >
-                <Icon size={18} />
+                <Icon size={13} />
+                <span>{label}</span>
               </a>
             ))}
           </div>
         </div>
       </div>
-
-      <a
-        href="#about"
-        className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce cursor-pointer hover:text-primary transition-colors duration-300 group"
-        aria-label="Scroll to about section"
-      >
-        <span className="text-sm text-muted-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-          Scroll
-        </span>
-        <ArrowDown className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-300" />
-      </a>
     </section>
   );
 };

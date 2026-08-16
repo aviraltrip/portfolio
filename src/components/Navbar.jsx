@@ -5,8 +5,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { ResumeButton } from "./ResumeButton";
 
 const navItems = [
-  { name: "Home", href: "#hero", id: "hero" },
-  { name: "About", href: "#about", id: "about" },
+  { name: "About", href: "#hero", id: "hero" },
   { name: "Skills", href: "#skills", id: "skills" },
   { name: "Projects", href: "#projects", id: "projects" },
   { name: "Contact", href: "#contact", id: "contact" },

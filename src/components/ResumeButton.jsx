@@ -61,7 +61,7 @@ export const ResumeButton = ({ variant = "full", className }) => {
         aria-expanded={menuOpen}
         className={
           isCompact
-            ? "group flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-medium border border-primary/40 text-primary bg-primary/5 hover:bg-primary/15 hover:border-primary/60 hover:scale-105 active:scale-95 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            ? "group flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium border border-border/50 text-foreground bg-card hover:bg-secondary/40 hover:scale-105 active:scale-95 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
             : "group relative px-6 py-2 rounded-full border-2 border-primary text-primary hover:text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
         }
       >
