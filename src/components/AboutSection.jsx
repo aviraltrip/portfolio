@@ -6,8 +6,7 @@ export const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-4 relative overflow-hidden">
 
-      <div className="absolute top-24 right-10 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000 pointer-events-none" />
+
 
       <div className="container mx-auto max-w-5xl relative z-10">
         <h2 className="section-heading">
@@ -54,7 +53,7 @@ export const AboutSection = () => {
             ].map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="glass-card p-5 hover:glow-primary transition-all duration-300 group hover:scale-[1.02] cursor-default"
+                className="glass-card p-5 transition-all duration-300 group hover:scale-[1.02] cursor-default"
               >
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 shrink-0">

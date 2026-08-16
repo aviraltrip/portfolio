@@ -96,31 +96,31 @@ const socialLinks = [
     href: "https://www.linkedin.com/in/aviral-tripathi-836763204/",
     icon: Linkedin,
     label: "LinkedIn",
-    color: "hover:text-blue-500 hover:shadow-blue-500/30",
+    color: "hover:text-primary",
   },
   {
     href: "https://x.com/AviralTrip2503",
     icon: Twitter,
     label: "X / Twitter",
-    color: "hover:text-sky-400 hover:shadow-sky-400/30",
+    color: "hover:text-primary",
   },
   {
     href: "https://github.com/aviraltrip",
     icon: Github,
     label: "GitHub",
-    color: "hover:text-foreground hover:shadow-foreground/20",
+    color: "hover:text-primary",
   },
   {
     href: "https://leetcode.com/u/aviraltrip/",
     icon: Code2,
     label: "LeetCode",
-    color: "hover:text-orange-400 hover:shadow-orange-400/30",
+    color: "hover:text-primary",
   },
   {
     href: "https://codeforces.com/profile/aviraltrip",
     icon: Zap,
     label: "Codeforces",
-    color: "hover:text-blue-400 hover:shadow-blue-400/30",
+    color: "hover:text-primary",
   },
 ];
 
@@ -168,10 +168,9 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 relative overflow-hidden bg-secondary/30">
+    <section id="contact" className="py-24 px-4 relative overflow-hidden">
 
-      <div className="absolute top-20 right-10 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl animate-pulse pointer-events-none" />
-      <div className="absolute bottom-20 left-10 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000 pointer-events-none" />
+
 
       <div className="container mx-auto max-w-5xl relative z-10">
         <h2 className="section-heading">
@@ -239,7 +238,6 @@ export const ContactSection = () => {
                     className={cn(
                       "p-2.5 rounded-xl border border-border/50 bg-background/50 text-muted-foreground",
                       "transition-all duration-300 hover:scale-110 hover:border-primary/30",
-                      "hover:shadow-lg",
                       color
                     )}
                   >

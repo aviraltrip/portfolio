@@ -7,7 +7,7 @@ export const HeroSection = () => {
       className="relative min-h-screen flex flex-col items-center justify-center px-4"
     >
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+
 
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-10">
@@ -27,7 +27,7 @@ export const HeroSection = () => {
           <div className="flex items-center justify-center opacity-0 animate-fade-in-delay-4">
             <a
               href="#projects"
-              className="px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium inline-flex items-center group transition-all duration-300 hover:shadow-[0_0_18px_rgba(139,92,246,0.5)] hover:scale-105 active:scale-95"
+              className="px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium inline-flex items-center group transition-all duration-300 hover:bg-primary/95 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
             >
               View My Work
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
@@ -47,7 +47,7 @@ export const HeroSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="p-2 rounded-full border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_12px_hsl(var(--primary)/0.3)]"
+                className="p-2 rounded-full border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 hover:scale-110"
               >
                 <Icon size={18} />
               </a>

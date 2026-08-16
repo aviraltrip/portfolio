@@ -92,9 +92,9 @@ const skillIcons = {
 };
 
 const categoryGlow = {
-  frontend: "hover:shadow-[0_0_18px_rgba(56,189,248,0.35)] hover:border-sky-400/40",
-  backend: "hover:shadow-[0_0_18px_rgba(104,160,99,0.35)] hover:border-green-400/40",
-  tools: "hover:shadow-[0_0_18px_rgba(139,92,246,0.35)] hover:border-violet-400/40",
+  frontend: "hover:border-primary/40 hover:shadow-sm",
+  backend: "hover:border-primary/40 hover:shadow-sm",
+  tools: "hover:border-primary/40 hover:shadow-sm",
 };
 
 const skills = [
@@ -113,9 +113,9 @@ const skills = [
 const categories = ["all", "frontend", "backend", "tools"];
 
 const categoryColors = {
-  frontend: "bg-sky-500/10 border-sky-500/30 text-sky-500",
-  backend: "bg-green-500/10 border-green-500/30 text-green-500",
-  tools: "bg-violet-500/10 border-violet-500/30 text-violet-500",
+  frontend: "bg-primary/10 border-primary/20 text-primary",
+  backend: "bg-primary/10 border-primary/20 text-primary",
+  tools: "bg-primary/10 border-primary/20 text-primary",
 };
 
 export const SkillsSection = () => {
@@ -142,10 +142,9 @@ export const SkillsSection = () => {
   );
 
   return (
-    <section id="skills" className="py-24 px-4 relative overflow-hidden bg-secondary/30" ref={sectionRef}>
+    <section id="skills" className="py-24 px-4 relative overflow-hidden" ref={sectionRef}>
 
-      <div className="absolute top-16 left-10 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl animate-pulse pointer-events-none" />
-      <div className="absolute bottom-16 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000 pointer-events-none" />
+
 
       <div className="container mx-auto max-w-5xl relative z-10">
         <h2 className="section-heading">
@@ -186,35 +185,21 @@ export const SkillsSection = () => {
                   visible ? "reveal-visible" : "reveal-on-scroll"
                 )}
                 style={{
-                  transition: `opacity 0.4s ease ${index * 60}ms, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) ${index * 60}ms, box-shadow 0.4s ease, border-color 0.3s ease`,
+                  transition: `opacity 0.4s ease ${index * 60}ms, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) ${index * 60}ms, border-color 0.3s ease`,
                 }}
               >
 
-                <span className="skill-card__sheen" aria-hidden="true" />
 
-
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    "pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500",
-                    skill.category === "frontend"
-                      ? "bg-[radial-gradient(circle_at_50%_0%,rgba(56,189,248,0.18),transparent_60%)]"
-                      : skill.category === "backend"
-                        ? "bg-[radial-gradient(circle_at_50%_0%,rgba(104,160,99,0.18),transparent_60%)]"
-                        : "bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.18),transparent_60%)]"
-                  )}
-                />
 
 
                 <div className="relative z-10">
-                  <div className="p-3 rounded-xl bg-card transition-all duration-500 ease-out group-hover:bg-primary/5 group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-lg group-hover:shadow-primary/20">
+                  <div className="p-3 rounded-xl bg-card transition-all duration-500 ease-out group-hover:bg-primary/5 group-hover:scale-110 group-hover:-rotate-6">
                     <IconComponent />
                   </div>
                   <span
                     className={cn(
                       "absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full border-2 border-background transition-transform duration-500 group-hover:scale-125",
-                      skill.category === "frontend" ? "bg-sky-400" :
-                        skill.category === "backend" ? "bg-green-400" : "bg-violet-400"
+                      "bg-primary"
                     )}
                   />
                 </div>

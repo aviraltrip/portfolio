@@ -79,11 +79,9 @@ const ProjectCard = ({ project, index }) => {
         className="group relative animate-in fade-in slide-in-from-bottom-8 duration-700 h-full"
         style={{ animationDelay: `${index * 120}ms` }}
       >
-        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-25 blur-md transition-all duration-500" />
         <div className="relative h-full min-h-[420px] rounded-xl border border-dashed border-border/60 bg-card/40 backdrop-blur-sm flex flex-col items-center justify-center text-center p-8 overflow-hidden hover:border-primary/40 transition-all duration-500">
           <div className="relative mb-5">
-            <div className="absolute inset-0 rounded-full bg-primary/20 blur-2xl scale-150 animate-pulse" />
-            <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 border border-primary/30 flex items-center justify-center">
+            <div className="relative w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
               <Sparkles className="text-primary animate-pulse" size={28} />
             </div>
           </div>
@@ -106,9 +104,7 @@ const ProjectCard = ({ project, index }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
 
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-30 blur-md transition-all duration-500" />
-
-      <div className="relative bg-card rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-all duration-500 h-full flex flex-col hover:shadow-2xl hover:shadow-primary/10">
+      <div className="relative bg-card rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-all duration-500 h-full flex flex-col hover:shadow-md">
 
         <div className="relative h-48 overflow-hidden bg-muted">
           <img
@@ -244,10 +240,6 @@ export const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-24 px-4 relative overflow-hidden">
-      {/* Ambient blobs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
-
       <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="section-heading">
           Featured <span className="text-gradient">Projects</span>
