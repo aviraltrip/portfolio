@@ -44,6 +44,14 @@ export const ThemeToggle = () => {
 
     const x = event.clientX ?? window.innerWidth / 2;
     const y = event.clientY ?? window.innerHeight / 2;
+    const r = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    root.style.setProperty("--x", `${x}px`);
+    root.style.setProperty("--y", `${y}px`);
+    root.style.setProperty("--r", `${r}px`);
 
     root.classList.add("view-transitioning");
 
@@ -53,29 +61,11 @@ export const ThemeToggle = () => {
       });
     });
 
-    transition.ready.then(() => {
-      const clipPath = [
-        `circle(0px at ${x}px ${y}px)`,
-        `circle(${Math.hypot(
-          Math.max(x, window.innerWidth - x),
-          Math.max(y, window.innerHeight - y)
-        )}px at ${x}px ${y}px)`,
-      ];
-
-      document.documentElement.animate(
-        {
-          clipPath: clipPath,
-        },
-        {
-          duration: 400,
-          easing: "cubic-bezier(0.16, 1, 0.3, 1)",
-          pseudoElement: "::view-transition-new(root)",
-        }
-      );
-    });
-
     transition.finished.finally(() => {
       root.classList.remove("view-transitioning");
+      root.style.removeProperty("--x");
+      root.style.removeProperty("--y");
+      root.style.removeProperty("--r");
     });
   };
 

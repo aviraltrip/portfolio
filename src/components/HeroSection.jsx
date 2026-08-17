@@ -80,13 +80,10 @@ export const HeroSection = () => {
       className="scroll-mt-20 pt-32 pb-10 px-4 max-w-3xl mx-auto z-10 animate-fade-in"
     >
       <div className="space-y-8 text-left">
-        {/* Profile Avatar and Name */}
         <div className="flex items-center gap-5">
           <div className="relative group shrink-0">
-            {/* Elegant outer glow effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-primary via-indigo-500 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-500" />
             
-            {/* The Logo Container */}
             <div className="relative w-20 h-20 rounded-full flex items-center justify-center p-3.5 bg-neutral-950 dark:bg-zinc-900 border border-white/10 dark:border-zinc-800/80 shadow-xl shadow-black/20 transition-all duration-300 group-hover:scale-105">
               <img
                 src="/vite.png"
@@ -110,7 +107,6 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* Bio Description */}
         <div className="space-y-4">
           <p className="text-base text-foreground leading-relaxed text-justify">
             Full-stack & AI developer specializing in <strong>Next.js, React, Python, FastAPI, and Generative AI</strong>. Building intelligent systems, LLM-powered applications, and scalable backend architectures with <strong>LangChain, Hugging Face, PostgreSQL, Redis, and MongoDB</strong>.
@@ -119,7 +115,6 @@ export const HeroSection = () => {
 
 
 
-        {/* Social Badges */}
         <div className="pt-4 border-t border-border/40">
           <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider mb-3 pl-1">
             Here are my socials

@@ -1,7 +1,6 @@
 import { ArrowRight, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Featured projects list - formatted as a clean 2x2 grid column layout
 const projects = [
   {
     id: 1,
@@ -66,10 +65,8 @@ const ProjectCard = ({ project, index }) => {
       className="group relative flex flex-col h-full animate-in fade-in slide-in-from-bottom-8 duration-700"
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      {/* Preview Frame */}
       <div className="relative aspect-video w-full rounded-xl border border-border/50 bg-[#16161a] p-2.5 overflow-hidden mb-4 group-hover:border-primary/30 transition-all duration-300">
         <div className="w-full h-full rounded-lg border border-border/30 bg-[#0e0e11] overflow-hidden relative group-hover:shadow-lg transition-all duration-300">
-          {/* Browser window header frame mock */}
           <div className="h-5 w-full bg-[#1c1c21] border-b border-border/20 flex items-center px-2 gap-1 shrink-0">
             <span className="w-1.5 h-1.5 rounded-full bg-red-500/80" />
             <span className="w-1.5 h-1.5 rounded-full bg-yellow-500/80" />
@@ -89,7 +86,6 @@ const ProjectCard = ({ project, index }) => {
         </div>
       </div>
 
-      {/* Content */}
       <div className="flex flex-col flex-grow text-left">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-base font-bold text-foreground transition-colors duration-300 group-hover:text-primary leading-snug">
@@ -101,7 +97,6 @@ const ProjectCard = ({ project, index }) => {
           {project.description}
         </p>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {project.tags.map((tag) => (
             <span
@@ -113,7 +108,6 @@ const ProjectCard = ({ project, index }) => {
           ))}
         </div>
 
-        {/* Action Links */}
         <div className="flex items-center gap-4 pt-1">
           {project.demoUrl && project.demoUrl !== "#" && (
             <a
