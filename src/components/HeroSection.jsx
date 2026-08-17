@@ -82,11 +82,19 @@ export const HeroSection = () => {
       <div className="space-y-8 text-left">
         {/* Profile Avatar and Name */}
         <div className="flex items-center gap-5">
-          <img
-            src="https://github.com/aviraltrip.png"
-            alt="Aviral Tripathi"
-            className="w-20 h-20 rounded-full border border-border/60 object-cover shadow-sm bg-muted"
-          />
+          <div className="relative group shrink-0">
+            {/* Elegant outer glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary via-indigo-500 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-500" />
+            
+            {/* The Logo Container */}
+            <div className="relative w-20 h-20 rounded-full flex items-center justify-center p-3.5 bg-neutral-950 dark:bg-zinc-900 border border-white/10 dark:border-zinc-800/80 shadow-xl shadow-black/20 transition-all duration-300 group-hover:scale-105">
+              <img
+                src="/vite.png"
+                alt="Aviral Tripathi"
+                className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]"
+              />
+            </div>
+          </div>
           <div>
             <h1 className="text-3xl font-bold tracking-tight text-foreground">
               Aviral Tripathi

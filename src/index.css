@@ -380,3 +380,24 @@
     scroll-behavior: auto;
   }
 }
+
+/* Custom theme toggle view transition styling */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+  will-change: clip-path;
+}
+
+/* Temporarily disable standard transitions on all elements during view transitions to prevent frame lag */
+.view-transitioning * {
+  transition: none !important;
+}
