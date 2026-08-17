@@ -160,11 +160,12 @@ export const Navbar = () => {
                     : "text-foreground/80 hover:text-primary hover:bg-primary/5"
                 )}
                 style={{
-                  transitionDelay: isMenuOpen ? `${key * 60}ms` : "0ms",
                   transform: isMenuOpen ? "translateX(0)" : "translateX(-20px)",
                   opacity: isMenuOpen ? 1 : 0,
-                  transition:
-                    "color 200ms ease, transform 300ms ease, background-color 200ms ease, opacity 250ms ease",
+                  transitionProperty: "color, transform, background-color, opacity",
+                  transitionDuration: "200ms, 300ms, 200ms, 250ms",
+                  transitionTimingFunction: "ease, ease, ease, ease",
+                  transitionDelay: isMenuOpen ? `${key * 60}ms` : "0ms",
                 }}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -174,10 +175,12 @@ export const Navbar = () => {
             <div
               className="w-full pt-2"
               style={{
-                transitionDelay: isMenuOpen ? `${navItems.length * 60}ms` : "0ms",
                 transform: isMenuOpen ? "translateX(0)" : "translateX(-20px)",
                 opacity: isMenuOpen ? 1 : 0,
-                transition: "transform 300ms ease, opacity 250ms ease",
+                transitionProperty: "transform, opacity",
+                transitionDuration: "300ms, 250ms",
+                transitionTimingFunction: "ease, ease",
+                transitionDelay: isMenuOpen ? `${navItems.length * 60}ms` : "0ms",
               }}
             >
               <p className="text-xs uppercase tracking-wider text-muted-foreground/60 mb-2">

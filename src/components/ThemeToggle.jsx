@@ -1,5 +1,5 @@
 import { Moon, Sun } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { flushSync } from "react-dom";
 import { cn } from "@/lib/utils";
 
@@ -9,22 +9,36 @@ export const ThemeToggle = () => {
     document.documentElement.classList.contains("dark")
   );
 
+  useEffect(() => {
+    const handleThemeChange = () => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    };
+    window.addEventListener("theme-changed", handleThemeChange);
+    return () => window.removeEventListener("theme-changed", handleThemeChange);
+  }, []);
+
   const toggleTheme = (event) => {
     const root = document.documentElement;
     const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (!document.startViewTransition || isReducedMotion) {
-      if (isDarkMode) {
-        root.classList.remove("dark");
-        root.style.colorScheme = "light";
-        localStorage.setItem("theme", "light");
-        setIsDarkMode(false);
-      } else {
+    const newDarkMode = !isDarkMode;
+
+    const updateDOM = () => {
+      if (newDarkMode) {
         root.classList.add("dark");
         root.style.colorScheme = "dark";
         localStorage.setItem("theme", "dark");
-        setIsDarkMode(true);
+      } else {
+        root.classList.remove("dark");
+        root.style.colorScheme = "light";
+        localStorage.setItem("theme", "light");
       }
+      setIsDarkMode(newDarkMode);
+      window.dispatchEvent(new Event("theme-changed"));
+    };
+
+    if (!document.startViewTransition || isReducedMotion) {
+      updateDOM();
       return;
     }
 
@@ -35,17 +49,7 @@ export const ThemeToggle = () => {
 
     const transition = document.startViewTransition(() => {
       flushSync(() => {
-        if (isDarkMode) {
-          root.classList.remove("dark");
-          root.style.colorScheme = "light";
-          localStorage.setItem("theme", "light");
-          setIsDarkMode(false);
-        } else {
-          root.classList.add("dark");
-          root.style.colorScheme = "dark";
-          localStorage.setItem("theme", "dark");
-          setIsDarkMode(true);
-        }
+        updateDOM();
       });
     });
 
