@@ -105,7 +105,8 @@ export const Navbar = () => {
         </div>
 
 
-        <div className="md:hidden relative z-50">
+        <div className="md:hidden flex items-center gap-2 relative z-50">
+          <ThemeToggle />
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-2 text-foreground hover:text-primary transition-colors duration-200 bg-background/80 backdrop-blur-sm rounded-md"
@@ -204,17 +205,7 @@ export const Navbar = () => {
                 </a>
               </div>
             </div>
-            <div
-              className="py-3 px-6 rounded-xl w-full flex justify-center"
-              style={{
-                transitionDelay: isMenuOpen ? `${(navItems.length + 1) * 60}ms` : "0ms",
-                transform: isMenuOpen ? "translateX(0)" : "translateX(-20px)",
-                opacity: isMenuOpen ? 1 : 0,
-                transition: "transform 300ms ease, opacity 250ms ease",
-              }}
-            >
-              <ThemeToggle />
-            </div>
+
           </div>
         </div>
 
