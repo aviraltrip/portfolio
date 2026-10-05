@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="background" x1="40" y1="28" x2="1150" y2="670" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#090D18"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="364" y1="208" x2="810" y2="477" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67D2EF"/>
+      <stop offset="1" stop-color="#00ADD8"/>
+    </linearGradient>
+    <filter id="glow" x="260" y="142" width="680" height="420" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="48"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" rx="28" fill="url(#background)"/>
+  <circle cx="600" cy="345" r="204" fill="#00ADD8" fill-opacity=".13" filter="url(#glow)"/>
+  <path d="M0 514.5C192 452 317 618 529 552.5S875 419 1200 538" stroke="#67D2EF" stroke-opacity=".12" stroke-width="2"/>
+  <path d="M0 550C227 477 334 652 564 576S903 461 1200 572" stroke="#67D2EF" stroke-opacity=".08" stroke-width="2"/>
+  <rect x="190" y="150" width="820" height="376" rx="24" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <circle cx="226" cy="186" r="7" fill="#F87171"/>
+  <circle cx="250" cy="186" r="7" fill="#FBBF24"/>
+  <circle cx="274" cy="186" r="7" fill="#34D399"/>
+  <rect x="230" y="232" width="740" height="76" rx="14" fill="#0B1220" stroke="#273449"/>
+  <path d="M284 270h286" stroke="#94A3B8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M600 269h63" stroke="url(#accent)" stroke-width="12" stroke-linecap="round"/>
+  <path d="m646 246 24 23-24 23" stroke="#67D2EF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="712" y="251" width="219" height="37" rx="10" fill="#0E7490" fill-opacity=".22"/>
+  <text x="730" y="276" fill="#67D2EF" font-family="Arial, sans-serif" font-size="19" font-weight="700">go / url</text>
+  <text x="230" y="370" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="43" font-weight="700">URL Shortener</text>
+  <text x="230" y="410" fill="#94A3B8" font-family="Arial, sans-serif" font-size="22">Fast redirects. Reliable storage. Built with Go.</text>
+  <rect x="230" y="448" width="115" height="38" rx="19" fill="#0E7490" fill-opacity=".24" stroke="#155E75"/>
+  <text x="258" y="473" fill="#67D2EF" font-family="Arial, sans-serif" font-size="16" font-weight="700">Go + Fiber</text>
+  <rect x="359" y="448" width="133" height="38" rx="19" fill="#1E293B"/>
+  <text x="384" y="473" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="16">PostgreSQL</text>
+  <rect x="506" y="448" width="87" height="38" rx="19" fill="#1E293B"/>
+  <text x="529" y="473" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="16">Redis</text>
+</svg>

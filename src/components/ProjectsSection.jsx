@@ -48,13 +48,12 @@ const projects = [
   },
   {
     id: 5,
-    title: "HealthDesk: AI Telemedicine",
+    title: "URL Shortener",
     description:
-      "Pharmacist telemedicine dashboard featuring real-time, geolocation-based medicine availability and automated stock notifications.",
-    image: "/projects/healthdesk.png",
-    tags: ["ReactJS", "NextJS", "Tailwind CSS"],
-    demoUrl: "https://axios-tawny-tau.vercel.app/",
-    githubUrl: "https://github.com/Hellf0rg0d/healthdesk",
+      "Production-oriented URL shortener built with Go and Fiber, using PostgreSQL for link metadata and Redis for caching, rate limiting, and click tracking.",
+    image: "/projects/url-shortener.svg",
+    tags: ["Go", "Fiber", "PostgreSQL", "Redis"],
+    githubUrl: "https://github.com/aviraltrip/URL-Shortener",
     featured: true,
   },
 ];
