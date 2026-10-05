@@ -2,6 +2,20 @@ import { GitPullRequest, GitMerge, ArrowRight } from "lucide-react";
 
 const contributions = [
   {
+    title: "fix: normalize punctuation-delimited meaning initials",
+    repo: "EricSpencer00/abbreviation-maker",
+    number: 7,
+    status: "open",
+    url: "https://github.com/EricSpencer00/abbreviation-maker/pull/7"
+  },
+  {
+    title: "fix: add --version option to CLI",
+    repo: "LUC-AI4FM/tlakit",
+    number: 99,
+    status: "merged",
+    url: "https://github.com/LUC-AI4FM/tlakit/pull/99"
+  },
+  {
     title: "test(examples): add offline smoke test for run_demo.py (#136)",
     repo: "MarcoPorcellato/logseq-matryca-parser",
     number: 146,
