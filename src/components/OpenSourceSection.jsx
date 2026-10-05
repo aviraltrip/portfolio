@@ -16,6 +16,13 @@ const contributions = [
     url: "https://github.com/LUC-AI4FM/tlakit/pull/99"
   },
   {
+    title: "feat: add human-readable __str__ format for CheckResult and Trace (#61)",
+    repo: "LUC-AI4FM/tlakit",
+    number: 71,
+    status: "merged",
+    url: "https://github.com/LUC-AI4FM/tlakit/pull/71"
+  },
+  {
     title: "test(examples): add offline smoke test for run_demo.py (#136)",
     repo: "MarcoPorcellato/logseq-matryca-parser",
     number: 146,
@@ -23,27 +30,18 @@ const contributions = [
     url: "https://github.com/MarcoPorcellato/logseq-matryca-parser/pull/146"
   },
   {
-    title: "fix: simplify check.sh using POSIX shell parameter expansion",
-    repo: "LUC-AI4FM/tlakit",
-    number: 115,
-    status: "merged",
-    url: "https://github.com/LUC-AI4FM/tlakit/pull/115"
-  },
-
-  {
     title: "fix: simplify check.sh curl upload",
     repo: "LUC-AI4FM/tlakit",
     number: 102,
     status: "merged",
     url: "https://github.com/LUC-AI4FM/tlakit/pull/102"
   },
-
   {
-    title: "feat: add human-readable __str__ format for CheckResult and Trace (#61)",
+    title: "fix: simplify check.sh using POSIX shell parameter expansion",
     repo: "LUC-AI4FM/tlakit",
-    number: 71,
+    number: 115,
     status: "merged",
-    url: "https://github.com/LUC-AI4FM/tlakit/pull/71"
+    url: "https://github.com/LUC-AI4FM/tlakit/pull/115"
   }
 ];
 
