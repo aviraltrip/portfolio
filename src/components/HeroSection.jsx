@@ -109,7 +109,7 @@ export const HeroSection = () => {
 
         <div className="space-y-4">
           <p className="text-base text-foreground leading-relaxed text-justify">
-            <strong>Full-stack & AI developer</strong> building web and AI products with <strong>Next.js, React, Python, and FastAPI</strong>. I build scalable backends and LLM workflows with <strong>LangChain, Go, PostgreSQL, Redis, and MongoDB</strong>.
+            <strong>Full-stack & AI developer</strong> building modern web apps and AI-powered systems. I work across frontend, backend, and LLM workflows with <strong>Next.js, React, Python, Go, FastAPI, LangChain, PostgreSQL, Redis, and MongoDB</strong>.
           </p>
         </div>
 
