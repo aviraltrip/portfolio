@@ -10,9 +10,9 @@ export const ExperienceSection = () => (
       <article className="rounded-2xl border border-border/50 bg-card/45 p-5 sm:p-6 text-left transition-colors hover:border-primary/30">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex items-start gap-3">
-            <div className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border/50 bg-white p-2">
+            <div className="mt-0.5 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-border/50 bg-white p-1.5 shadow-sm">
               <img
-                src="https://www.nyrock.co/favicon.ico"
+                src="/nyrock-icon.png"
                 alt="NyRock logo"
                 className="h-full w-full object-contain"
               />
