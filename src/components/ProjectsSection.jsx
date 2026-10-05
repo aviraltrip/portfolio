@@ -37,6 +37,16 @@ const projects = [
   },
   {
     id: 4,
+    title: "URL Shortener",
+    description:
+      "Production-oriented URL shortener built with Go and Fiber, using PostgreSQL for link metadata and Redis for caching, rate limiting, and click tracking.",
+    image: "/projects/url-shortener.png",
+    tags: ["Go", "Fiber", "PostgreSQL", "Redis"],
+    githubUrl: "https://github.com/aviraltrip/URL-Shortener",
+    featured: true,
+  },
+  {
+    id: 5,
     title: "OnlyTechs: Leaderboard Platform",
     description:
       "Skill-based rankings dashboard featuring backend API integration, efficient pagination, and responsive layouts.",
@@ -44,16 +54,6 @@ const projects = [
     tags: ["React", "Next.js", "Tailwind CSS"],
     demoUrl: "https://onlytechs.vercel.app/",
     githubUrl: "#",
-    featured: true,
-  },
-  {
-    id: 5,
-    title: "URL Shortener",
-    description:
-      "Production-oriented URL shortener built with Go and Fiber, using PostgreSQL for link metadata and Redis for caching, rate limiting, and click tracking.",
-    image: "/projects/url-shortener.png",
-    tags: ["Go", "Fiber", "PostgreSQL", "Redis"],
-    githubUrl: "https://github.com/aviraltrip/URL-Shortener",
     featured: true,
   },
 ];
