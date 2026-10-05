@@ -51,7 +51,7 @@ const projects = [
     title: "URL Shortener",
     description:
       "Production-oriented URL shortener built with Go and Fiber, using PostgreSQL for link metadata and Redis for caching, rate limiting, and click tracking.",
-    image: "/projects/url-shortener.svg",
+    image: "/projects/url-shortener.png",
     tags: ["Go", "Fiber", "PostgreSQL", "Redis"],
     githubUrl: "https://github.com/aviraltrip/URL-Shortener",
     featured: true,
