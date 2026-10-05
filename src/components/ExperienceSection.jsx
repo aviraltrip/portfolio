@@ -1,4 +1,4 @@
-import { ArrowUpRight, BriefcaseBusiness, CalendarDays, MapPin } from "lucide-react";
+import { ArrowUpRight, CalendarDays, MapPin } from "lucide-react";
 
 export const ExperienceSection = () => (
   <section id="experience" className="scroll-mt-20 pt-10 pb-12 px-4 relative overflow-hidden">
@@ -50,8 +50,12 @@ export const ExperienceSection = () => (
       <article className="mt-4 rounded-2xl border border-border/50 bg-card/45 p-5 text-left transition-colors hover:border-primary/30 sm:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex items-start gap-3">
-            <div className="mt-0.5 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-border/50 bg-primary/10 text-primary">
-              <BriefcaseBusiness size={22} aria-hidden="true" />
+            <div className="mt-0.5 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-border/50 bg-white p-1.5 shadow-sm">
+              <img
+                src="/golfai-icon.png"
+                alt="GolfAI logo"
+                className="h-full w-full rounded-xl object-contain"
+              />
             </div>
             <div>
               <h3 className="text-lg font-semibold text-foreground">Software Testing &amp; QA</h3>
