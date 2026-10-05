@@ -45,17 +45,6 @@ const projects = [
     githubUrl: "https://github.com/aviraltrip/URL-Shortener",
     featured: true,
   },
-  {
-    id: 5,
-    title: "OnlyTechs: Leaderboard Platform",
-    description:
-      "Skill-based rankings dashboard featuring backend API integration, efficient pagination, and responsive layouts.",
-    image: "/projects/onlytechs.png",
-    tags: ["React", "Next.js", "Tailwind CSS"],
-    demoUrl: "https://onlytechs.vercel.app/",
-    githubUrl: "#",
-    featured: true,
-  },
 ];
 
 const ProjectCard = ({ project, index }) => {
