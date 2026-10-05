@@ -28,7 +28,6 @@ export const ExperienceSection = () => (
                 NyRock
                 <ArrowUpRight size={14} aria-hidden="true" />
               </a>
-              <p className="mt-1 text-sm text-muted-foreground">Software Development Team</p>
             </div>
           </div>
 
