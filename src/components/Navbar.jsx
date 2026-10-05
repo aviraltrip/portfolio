@@ -6,6 +6,7 @@ import { ResumeButton } from "./ResumeButton";
 
 const navItems = [
   { name: "About", href: "#hero", id: "hero" },
+  { name: "Experience", href: "#experience", id: "experience" },
   { name: "Skills", href: "#skills", id: "skills" },
   { name: "Projects", href: "#projects", id: "projects" },
   { name: "Contact", href: "#contact", id: "contact" },

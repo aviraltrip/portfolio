@@ -1,5 +1,6 @@
 import { Navbar } from "../components/Navbar";
 import { HeroSection } from "../components/HeroSection";
+import { ExperienceSection } from "../components/ExperienceSection";
 import { SkillsSection } from "../components/SkillsSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { OpenSourceSection } from "../components/OpenSourceSection";
@@ -13,6 +14,7 @@ export const Home = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <ExperienceSection />
         <SkillsSection />
         <ProjectsSection />
         <OpenSourceSection />
