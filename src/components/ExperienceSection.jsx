@@ -46,9 +46,6 @@ export const ExperienceSection = () => (
           </div>
         </div>
 
-        <p className="mt-5 border-t border-border/40 pt-4 text-sm leading-relaxed text-muted-foreground">
-          Contributing to project work with NyRock, a digital engineering studio building web, app, and AI products.
-        </p>
       </article>
     </div>
   </section>
