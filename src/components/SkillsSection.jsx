@@ -168,14 +168,14 @@ export const SkillsSection = () => {
                   transition: `opacity 0.4s ease ${index * 40}ms, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) ${index * 40}ms, border-color 0.3s ease`,
                 }}
               >
-                <div className="transition-transform duration-300 group-hover:scale-110 flex items-center justify-center shrink-0 w-[18px] h-[18px]">
+                <div className="transition-transform duration-300 group-hover:scale-110 flex items-center justify-center shrink-0 w-[18px] h-[18px] rounded-[4px] overflow-hidden">
                   {IconComponent ? (
                     <IconComponent />
                   ) : (
                     <img
                       src={`https://cdn.simpleicons.org/${slug}`}
                       alt={skill.name}
-                      className="w-[18px] h-[18px] object-contain"
+                      className="w-full h-full object-contain"
                     />
                   )}
                 </div>
