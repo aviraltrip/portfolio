@@ -36,7 +36,7 @@ export const ExperienceSection = () => (
               <CalendarDays size={14} aria-hidden="true" />
               <time dateTime="2026-09-22">Sep 2026</time>
               <span aria-hidden="true">–</span>
-              <time dateTime="2027-01-22">Jan 2027</time>
+              <span>Present</span>
             </span>
             <span className="inline-flex items-center gap-1.5">
               <MapPin size={14} aria-hidden="true" />
