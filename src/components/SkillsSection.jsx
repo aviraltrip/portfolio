@@ -99,7 +99,7 @@ const skills = [
   { name: "Node.js", category: "backend" },
   { name: "Express.js", category: "backend" },
   { name: "LangChain", category: "backend" },
-  { name: "Hugging Face", category: "backend" },
+  { name: "Go", category: "backend" },
   { name: "MongoDB", category: "backend" },
   { name: "PostgreSQL", category: "backend" },
   { name: "Redis", category: "backend" },
