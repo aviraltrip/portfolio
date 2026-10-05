@@ -48,12 +48,13 @@ const GitHubLogo = () => (
 );
 
 const GoLogo = () => (
-  <svg width="18" height="18" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M24 41.5c0-11.3 9.2-20.5 20.5-20.5h39c11.3 0 20.5 9.2 20.5 20.5v2c0 4.4-3.6 8-8 8H32c-4.4 0-8-3.6-8-8v-2Z" fill="#00ADD8"/>
-    <path d="M31 91.5V36.3c0-5.2 4.2-9.4 9.4-9.4h50.9c5.2 0 9.4 4.2 9.4 9.4v55.2c0 5.2-4.2 9.4-9.4 9.4H40.4c-5.2 0-9.4-4.2-9.4-9.4Z" fill="#007D9C" opacity="0.2"/>
-    <path d="M38 41.5h52.5c4.1 0 7.5 3.4 7.5 7.5v36.5c0 6.7-5.5 12.2-12.2 12.2H42.2C35.5 97.7 30 92.2 30 85.5V49c0-4.1 3.4-7.5 7.5-7.5H38Zm5.5 15.5h11.5a4 4 0 0 1 0 8H43.5a4 4 0 0 1 0-8Zm0 16h25.8a4 4 0 0 1 0 8H43.5a4 4 0 1 1 0-8Z" fill="#00ADD8"/>
-    <circle cx="87.5" cy="57.5" r="5.5" fill="#fff"/>
-    <path d="M96 78.5c5.5 0 10-4.5 10-10 0-5.5-4.5-10-10-10h-1.5c-3.5 0-6.6 1.8-8.3 4.5a6.2 6.2 0 0 0 5.3 9.5h4.5Z" fill="#00ADD8"/>
+  <svg width="18" height="18" viewBox="0 0 92 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(0 2)">
+      <path d="M15 10.5H8.5C5.2 10.5 2.5 13.2 2.5 16.5V19.5C2.5 22.8 5.2 25.5 8.5 25.5H15" stroke="#6ACAE8" strokeWidth="2.8" strokeLinecap="round" opacity="0.9"/>
+      <path d="M25 7.5H18.5C15.2 7.5 12.5 10.2 12.5 13.5V22.5C12.5 25.8 15.2 28.5 18.5 28.5H25" stroke="#6ACAE8" strokeWidth="2.8" strokeLinecap="round" opacity="0.9"/>
+      <path d="M35 4.5H28.5C25.2 4.5 22.5 7.2 22.5 10.5V25.5C22.5 28.8 25.2 31.5 28.5 31.5H35" stroke="#6ACAE8" strokeWidth="2.8" strokeLinecap="round" opacity="0.9"/>
+      <text x="16" y="26" fontSize="27" fontWeight="900" letterSpacing="-3" fill="#67D2EF" fontFamily="Arial, Helvetica, sans-serif">GO</text>
+    </g>
   </svg>
 );
 
