@@ -2,20 +2,6 @@ import { GitPullRequest, GitMerge, ArrowRight } from "lucide-react";
 
 const contributions = [
   {
-    title: "feat: add SPDX license identifier validation for package.json and source files",
-    repo: "Rezakarimzadeh98/repoaudit",
-    number: 18,
-    status: "open",
-    url: "https://github.com/Rezakarimzadeh98/repoaudit/pull/18"
-  },
-  {
-    title: "feat: Add Python-first packaging checks for pyproject.toml quality (#9)",
-    repo: "Rezakarimzadeh98/repoaudit",
-    number: 17,
-    status: "open",
-    url: "https://github.com/Rezakarimzadeh98/repoaudit/pull/17"
-  },
-  {
     title: "test(examples): add offline smoke test for run_demo.py (#136)",
     repo: "MarcoPorcellato/logseq-matryca-parser",
     number: 146,
