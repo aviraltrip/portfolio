@@ -66,7 +66,7 @@ const iconSlugs = {
   "FastAPI": "fastapi",
   "Node.js": "nodedotjs",
   "Express.js": "express/white",
-  "Hugging Face": "huggingface",
+  "Go": "go",
   "MongoDB": "mongodb",
   "PostgreSQL": "postgresql",
   "Prisma": "prisma/white",
