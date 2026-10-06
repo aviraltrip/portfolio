@@ -86,7 +86,7 @@ export const ExperienceSection = () => (
         </div>
 
         <p className="mt-5 border-t border-border/40 pt-4 text-sm leading-relaxed text-muted-foreground">
-          Tested product workflows manually and with Playwright, identifying and reporting bugs and potential vulnerabilities.
+          Tested product workflows manually and through Playwright to identify and report bugs and potential vulnerabilities.
         </p>
       </article>
     </div>
