@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const GitHubLogo = ({ size = 13 }) => (
@@ -57,7 +56,7 @@ const socials = [
 export const HeroSection = () => {
   const titles = [
     "Full Stack Engineer",
-    "AI Engineer",
+    "2× Hackathon Winner",
     "Open Source Contributor"
   ];
   const [index, setIndex] = useState(0);
@@ -104,10 +103,6 @@ export const HeroSection = () => {
               )}
             >
               {titles[index]}
-            </p>
-            <p className="mt-2 inline-flex items-center gap-1.5 text-xs font-medium tracking-wide text-amber-700 dark:text-amber-400">
-              <Trophy size={13} aria-hidden="true" />
-              2× Hackathon Winner
             </p>
           </div>
         </div>
