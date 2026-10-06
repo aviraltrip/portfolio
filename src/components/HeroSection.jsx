@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const GitHubLogo = ({ size = 13 }) => (
@@ -111,6 +112,10 @@ export const HeroSection = () => {
           <p className="text-base text-foreground leading-relaxed text-justify">
             <strong>Full-stack & AI developer</strong> building modern web apps and AI-powered systems. I work across frontend, backend, and LLM workflows with <strong>Next.js, React, Python, Go, FastAPI, LangChain, PostgreSQL, Redis, and MongoDB</strong>.
           </p>
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/5 px-3 py-1.5 text-sm font-medium text-primary">
+            <Trophy size={15} aria-hidden="true" />
+            <span>2× Hackathon Winner</span>
+          </div>
         </div>
 
 
