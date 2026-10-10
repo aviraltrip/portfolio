@@ -85,9 +85,14 @@ export const ExperienceSection = () => (
           </div>
         </div>
 
-        <p className="mt-5 border-t border-border/40 pt-4 text-sm leading-relaxed text-muted-foreground">
-          Tested product workflows manually and through Playwright to identify and report bugs and potential vulnerabilities.
-        </p>
+        <ul className="mt-5 list-disc space-y-2 border-t border-border/40 pt-4 pl-5 text-sm leading-relaxed text-muted-foreground">
+          <li>
+            Evaluated the Club Admin, Starter, and Player portals through manual testing and Playwright-based automation, covering end-to-end user journeys, authentication flows, permission checks, and core business logic.
+          </li>
+          <li>
+            Documented issues across security, UX, and workflow reliability in a consolidated QA report, helping identify product gaps before release and improve stability and user experience.
+          </li>
+        </ul>
       </article>
     </div>
   </section>
