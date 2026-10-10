@@ -17,7 +17,7 @@ export const ResumeButton = ({ variant = "full", className }) => {
       className={cn(
         "group flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 active:scale-95",
         isCompact
-          ? "px-4 py-2 rounded-full text-sm font-medium border border-border/50 text-foreground bg-card hover:border-primary hover:bg-primary hover:text-white shadow-sm"
+          ? "px-4 py-2 rounded-full text-sm font-medium border border-border/50 text-foreground bg-card hover:text-primary shadow-sm"
           : "relative w-full sm:w-auto px-6 py-2 rounded-full border-2 border-primary text-primary hover:text-white overflow-hidden hover:shadow-lg hover:shadow-primary/30",
         className
       )}
