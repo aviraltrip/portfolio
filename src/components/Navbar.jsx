@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Menu, X, ExternalLink, Download } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { ResumeButton } from "./ResumeButton";
@@ -173,43 +173,6 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <div
-              className="w-full pt-2"
-              style={{
-                transform: isMenuOpen ? "translateX(0)" : "translateX(-20px)",
-                opacity: isMenuOpen ? 1 : 0,
-                transitionProperty: "transform, opacity",
-                transitionDuration: "300ms, 250ms",
-                transitionTimingFunction: "ease, ease",
-                transitionDelay: isMenuOpen ? `${navItems.length * 60}ms` : "0ms",
-              }}
-            >
-              <p className="text-xs uppercase tracking-wider text-muted-foreground/60 mb-2">
-                Resume
-              </p>
-              <div className="grid grid-cols-2 gap-2 w-full">
-                <a
-                  href="/assets/Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-primary/40 text-primary bg-primary/5 hover:bg-primary/15 transition-colors duration-200 text-base font-medium"
-                >
-                  <ExternalLink size={16} />
-                  Open
-                </a>
-                <a
-                  href="/assets/Resume.pdf"
-                  download="Resume.pdf"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-primary/40 text-primary bg-primary/5 hover:bg-primary/15 transition-colors duration-200 text-base font-medium"
-                >
-                  <Download size={16} />
-                  Download
-                </a>
-              </div>
-            </div>
-
           </div>
         </div>
 
