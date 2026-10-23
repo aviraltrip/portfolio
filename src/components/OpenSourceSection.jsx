@@ -2,6 +2,13 @@ import { GitPullRequest, GitMerge, ArrowRight } from "lucide-react";
 
 const contributions = [
   {
+    title: "fix(state): revert context and delete snapshot on step cancellation",
+    repo: "PicadoLabs/build-with-ai",
+    number: 167,
+    status: "open",
+    url: "https://github.com/PicadoLabs/build-with-ai/pull/167"
+  },
+  {
     title: "fix: normalize punctuation-delimited meaning initials",
     repo: "EricSpencer00/abbreviation-maker",
     number: 7,
