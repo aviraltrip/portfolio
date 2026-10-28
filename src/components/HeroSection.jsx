@@ -10,6 +10,12 @@ const GitHubLogo = ({ size = 13 }) => (
   </svg>
 );
 
+const XLogo = ({ size = 13 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18.901 1.153h3.68L14.54 10.02 24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.59-9.83L0 1.154h7.594l5.243 6.932zm-1.29 19.432h2.039L6.486 3.296H4.298z" />
+  </svg>
+);
+
 const LinkedInLogo = ({ size = 13 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
@@ -48,6 +54,7 @@ const CodeforcesLogo = ({ size = 13 }) => (
 
 const socials = [
   { href: "https://github.com/aviraltrip", icon: GitHubLogo, label: "Github" },
+  { href: "https://x.com/AviralTrip2503", icon: XLogo, label: "X" },
   { href: "https://www.linkedin.com/in/aviral-tripathi-836763204/", icon: LinkedInLogo, label: "LinkedIn" },
   { href: "https://codeforces.com/profile/aviraltrip", icon: CodeforcesLogo, label: "Codeforces" },
   { href: "https://leetcode.com/u/aviraltrip/", icon: LeetCodeLogo, label: "LeetCode" }
