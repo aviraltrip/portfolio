@@ -1,5 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import { cn } from "@/lib/utils";
+import gsap from "gsap";
+import { useGsapContext } from "@/hooks/useGsapAnimation";
 
 const VSCodeLogo = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -131,43 +133,75 @@ const categoryColors = {
 };
 
 export const SkillsSection = () => {
-  const [visible, setVisible] = useState(false);
   const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const gridRef = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  useGsapContext(
+    ({ prefersReducedMotion }) => {
+      if (prefersReducedMotion) return;
+
+      // Animate heading
+      gsap.from(headingRef.current, {
+        y: 25,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      // Animate skill badges with cascading wave stagger
+      if (gridRef.current) {
+        gsap.from(gridRef.current.children, {
+          y: 22,
+          opacity: 0,
+          scale: 0.94,
+          duration: 0.6,
+          stagger: {
+            amount: 0.45,
+            from: "start",
+            ease: "power2.out",
+          },
+          ease: "back.out(1.4)",
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        });
+      }
+    },
+    sectionRef,
+    []
+  );
 
   return (
-    <section id="skills" className="scroll-mt-20 pt-10 pb-12 px-4 relative overflow-hidden" ref={sectionRef}>
+    <section
+      id="skills"
+      className="scroll-mt-20 pt-10 pb-12 px-4 relative overflow-hidden"
+      ref={sectionRef}
+    >
       <div className="container mx-auto max-w-3xl relative z-10">
-        <h2 className="section-heading">
-          Skills & <span className="text-gradient">Technologies</span>
+        <h2 ref={headingRef} className="section-heading">
+          Skills &amp; <span className="text-gradient">Technologies</span>
         </h2>
-        <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-          {skills.map((skill, index) => {
+        <div
+          ref={gridRef}
+          className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto"
+        >
+          {skills.map((skill) => {
             const IconComponent = skillIcons[skill.name];
             const slug = iconSlugs[skill.name] || "code";
             return (
               <div
                 key={skill.name}
                 className={cn(
-                  "flex items-center gap-2 px-3.5 py-1.5 rounded-xl border border-border/40 bg-card/45 backdrop-blur-xs text-foreground text-sm font-medium transition-all duration-300 hover:scale-105 hover:border-primary/45 cursor-default hover:shadow-xs group",
-                  visible ? "reveal-visible" : "reveal-on-scroll"
+                  "flex items-center gap-2 px-3.5 py-1.5 rounded-xl border border-border/40 bg-card/45 backdrop-blur-xs text-foreground text-sm font-medium transition-all duration-300 hover:scale-105 hover:border-primary/45 cursor-default hover:shadow-xs group"
                 )}
-                style={{
-                  transition: `opacity 0.4s ease ${index * 40}ms, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) ${index * 40}ms, border-color 0.3s ease`,
-                }}
               >
                 <div className="transition-transform duration-300 group-hover:scale-110 flex items-center justify-center shrink-0 w-[18px] h-[18px] rounded-[4px] overflow-hidden">
                   {IconComponent ? (
@@ -177,6 +211,7 @@ export const SkillsSection = () => {
                       src={`https://cdn.simpleicons.org/${slug}`}
                       alt={skill.name}
                       className="w-full h-full object-contain"
+                      loading="lazy"
                     />
                   )}
                 </div>
