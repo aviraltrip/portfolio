@@ -76,7 +76,6 @@ export const HeroSection = () => {
   const infoRef = useRef(null);
   const bioRef = useRef(null);
   const socialsRef = useRef(null);
-  const socialPillsRef = useRef(null);
 
   // Parallax on ambient glow behind hero
   useParallax(glowRef, { yPercent: 30, scrub: 1.2 });
@@ -97,57 +96,35 @@ export const HeroSection = () => {
     return () => clearInterval(interval);
   }, [titles.length]);
 
-  // Page Load Entrance Animations
+  // Page Load Entrance Animations using fromTo for absolute stability in React 19
   useGsapContext(
     ({ prefersReducedMotion }) => {
       if (prefersReducedMotion) return;
 
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      tl.from(avatarWrapperRef.current, {
-        scale: 0.7,
-        opacity: 0,
-        duration: 0.9,
-        ease: "back.out(1.5)",
-      })
-        .from(
+      tl.fromTo(
+        avatarWrapperRef.current,
+        { scale: 0.75, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.9, ease: "back.out(1.5)" }
+      )
+        .fromTo(
           infoRef.current,
-          {
-            y: 25,
-            opacity: 0,
-            duration: 0.8,
-          },
+          { y: 25, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8 },
           "-=0.6"
         )
-        .from(
+        .fromTo(
           bioRef.current,
-          {
-            y: 20,
-            opacity: 0,
-            duration: 0.75,
-          },
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.75 },
           "-=0.5"
         )
-        .from(
+        .fromTo(
           socialsRef.current,
-          {
-            opacity: 0,
-            y: 15,
-            duration: 0.6,
-          },
+          { y: 15, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7 },
           "-=0.4"
-        )
-        .from(
-          socialPillsRef.current ? socialPillsRef.current.children : [],
-          {
-            y: 12,
-            opacity: 0,
-            scale: 0.9,
-            duration: 0.45,
-            stagger: 0.05,
-            ease: "back.out(1.4)",
-          },
-          "-=0.35"
         );
     },
     heroRef,
@@ -206,7 +183,7 @@ export const HeroSection = () => {
           <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider mb-3 pl-1">
             Here are my socials
           </p>
-          <div ref={socialPillsRef} className="flex gap-2 flex-wrap">
+          <div className="flex gap-2 flex-wrap">
             {socials.map(({ href, icon: Icon, label }) => (
               <a
                 key={label}
