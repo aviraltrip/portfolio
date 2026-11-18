@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import gsap from "gsap";
+import { useGsapContext } from "@/hooks/useGsapAnimation";
 
 const FloatingInput = ({ id, name, label, type = "text", required }) => {
   const [focused, setFocused] = useState(false);
@@ -86,12 +88,67 @@ const FloatingTextarea = ({ id, name, label, rows = 4, required }) => {
   );
 };
 
-
-
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useRef();
+
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const leftColRef = useRef(null);
+  const rightColRef = useRef(null);
+
+  useGsapContext(
+    ({ prefersReducedMotion }) => {
+      if (prefersReducedMotion) return;
+
+      // Animate heading and subtitle
+      gsap.from(headingRef.current.children, {
+        y: 22,
+        opacity: 0,
+        duration: 0.75,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      // Left column slide-in
+      if (leftColRef.current) {
+        gsap.from(leftColRef.current, {
+          x: -30,
+          opacity: 0,
+          duration: 0.85,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: leftColRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        });
+      }
+
+      // Right column slide-in
+      if (rightColRef.current) {
+        gsap.from(rightColRef.current, {
+          x: 30,
+          opacity: 0,
+          duration: 0.85,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: rightColRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        });
+      }
+    },
+    sectionRef,
+    []
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -132,30 +189,34 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="scroll-mt-20 pt-12 pb-12 px-4 relative overflow-hidden">
-
-
-
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="scroll-mt-20 pt-12 pb-12 px-4 relative overflow-hidden"
+    >
       <div className="container mx-auto max-w-3xl relative z-10">
-        <h2 className="section-heading text-center md:text-left">
-          Get In <span className="text-gradient">Touch</span>
-        </h2>
+        <div ref={headingRef}>
+          <h2 className="section-heading text-center md:text-left">
+            Get In <span className="text-gradient">Touch</span>
+          </h2>
 
-        <p className="text-center md:text-left text-muted-foreground mb-8 max-w-2xl mx-auto md:mx-0 pl-1">
-          Have a project in mind or want to collaborate? I'm always open to
-          discussing new opportunities.
-        </p>
+          <p className="text-center md:text-left text-muted-foreground mb-8 max-w-2xl mx-auto md:mx-0 pl-1">
+            Have a project in mind or want to collaborate? I'm always open to
+            discussing new opportunities.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-          <div className="glass-card p-5 space-y-4 flex flex-col justify-between">
+          <div
+            ref={leftColRef}
+            className="glass-card p-5 space-y-4 flex flex-col justify-between will-change-transform"
+          >
             <div>
               <h3 className="text-lg font-semibold mb-4">
                 Contact Information
               </h3>
 
               <div className="space-y-4">
-
                 <div className="flex items-center gap-3 group">
                   <div className="p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 shrink-0">
                     <Mail className="h-4 w-4 text-primary" />
@@ -170,7 +231,6 @@ export const ContactSection = () => {
                     </a>
                   </div>
                 </div>
-
 
                 <div className="flex items-center gap-3 group">
                   <div className="p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 shrink-0">
@@ -187,8 +247,10 @@ export const ContactSection = () => {
             </div>
           </div>
 
-
-          <div className="glass-card p-5">
+          <div
+            ref={rightColRef}
+            className="glass-card p-5 will-change-transform"
+          >
             <h3 className="text-lg font-semibold mb-4">
               Send a <span className="text-primary">Message</span>
             </h3>
