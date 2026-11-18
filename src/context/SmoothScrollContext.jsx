@@ -14,15 +14,12 @@ export const SmoothScrollProvider = ({ children }) => {
   const [lenisState, setLenisState] = useState(null);
 
   useEffect(() => {
-    // Respect accessibility settings
     const prefersReducedMotion =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Register ScrollTrigger plugin with GSAP
     gsap.registerPlugin(ScrollTrigger);
 
-    // Initialize Lenis instance
     const lenis = new Lenis({
       duration: prefersReducedMotion ? 0 : 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -40,17 +37,14 @@ export const SmoothScrollProvider = ({ children }) => {
       window.__lenis = lenis;
     }
 
-    // Connect Lenis scroll events to GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
 
-    // Sync Lenis RAF with GSAP's optimized ticker
     const updateTicker = (time) => {
       lenis.raf(time * 1000);
     };
     gsap.ticker.add(updateTicker);
     gsap.ticker.lagSmoothing(0);
 
-    // Global anchor click interceptor for silky-smooth anchor transitions
     const handleAnchorClick = (e) => {
       const anchor = e.target.closest('a[href^="#"]');
       if (!anchor) return;
@@ -70,7 +64,6 @@ export const SmoothScrollProvider = ({ children }) => {
 
     document.addEventListener("click", handleAnchorClick, { passive: false });
 
-    // Refresh ScrollTrigger once everything is mounted
     const refreshTimer = setTimeout(() => {
       ScrollTrigger.refresh();
     }, 200);

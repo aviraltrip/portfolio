@@ -65,7 +65,6 @@ export const OpenSourceSection = () => {
     ({ prefersReducedMotion }) => {
       if (prefersReducedMotion) return;
 
-      // Animate header and description
       if (headerRef.current) {
         gsap.fromTo(
           Array.from(headerRef.current.children),
@@ -86,7 +85,6 @@ export const OpenSourceSection = () => {
         );
       }
 
-      // Animate list items with stagger
       if (listRef.current) {
         const items = Array.from(listRef.current.children);
         gsap.fromTo(
@@ -109,7 +107,6 @@ export const OpenSourceSection = () => {
         );
       }
 
-      // Animate footer link
       if (footerLinkRef.current) {
         gsap.fromTo(
           footerLinkRef.current,

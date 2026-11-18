@@ -4,9 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * React 19 / StrictMode safe hook for GSAP animations with automatic context cleanup
- */
 export const useGsapContext = (callback, scopeRef, deps = []) => {
   useEffect(() => {
     const prefersReducedMotion =
@@ -21,9 +18,6 @@ export const useGsapContext = (callback, scopeRef, deps = []) => {
   }, deps);
 };
 
-/**
- * Reusable ScrollTrigger reveal hook
- */
 export const useScrollReveal = (
   targetRef,
   {
@@ -81,9 +75,6 @@ export const useScrollReveal = (
   }, deps);
 };
 
-/**
- * Reusable parallax hook using transform for GPU acceleration
- */
 export const useParallax = (
   targetRef,
   {
@@ -122,9 +113,6 @@ export const useParallax = (
   }, deps);
 };
 
-/**
- * Micro-interaction hook: Subtle magnetic pull on hover
- */
 export const useMagnetic = (ref, strength = 0.3) => {
   useEffect(() => {
     const el = ref.current;

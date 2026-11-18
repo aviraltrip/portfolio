@@ -12,7 +12,6 @@ export const ExperienceSection = () => {
     ({ prefersReducedMotion }) => {
       if (prefersReducedMotion) return;
 
-      // Animate section heading
       if (headingRef.current) {
         gsap.fromTo(
           headingRef.current,
@@ -32,7 +31,6 @@ export const ExperienceSection = () => {
         );
       }
 
-      // Animate experience cards staggered
       const validCards = cardsRef.current.filter(Boolean);
       if (validCards.length > 0) {
         gsap.fromTo(

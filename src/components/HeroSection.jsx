@@ -77,13 +77,10 @@ export const HeroSection = () => {
   const bioRef = useRef(null);
   const socialsRef = useRef(null);
 
-  // Parallax on ambient glow behind hero
   useParallax(glowRef, { yPercent: 30, scrub: 1.2 });
 
-  // Magnetic interaction on avatar for subtle tactile feel
   useMagnetic(avatarWrapperRef, 0.2);
 
-  // Rotating title interval
   useEffect(() => {
     const interval = setInterval(() => {
       setVisible(false);
@@ -96,7 +93,6 @@ export const HeroSection = () => {
     return () => clearInterval(interval);
   }, [titles.length]);
 
-  // Page Load Entrance Animations using fromTo for absolute stability in React 19
   useGsapContext(
     ({ prefersReducedMotion }) => {
       if (prefersReducedMotion) return;
@@ -137,7 +133,6 @@ export const HeroSection = () => {
       ref={heroRef}
       className="scroll-mt-20 pt-32 pb-10 px-4 max-w-3xl mx-auto z-10 relative"
     >
-      {/* Subtle ambient glow behind hero with parallax */}
       <div
         ref={glowRef}
         aria-hidden="true"

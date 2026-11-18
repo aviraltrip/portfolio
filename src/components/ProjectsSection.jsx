@@ -58,7 +58,6 @@ const ProjectCard = ({ project }) => {
     ({ prefersReducedMotion }) => {
       if (prefersReducedMotion) return;
 
-      // Card entrance animation
       gsap.fromTo(
         cardRef.current,
         { y: 35, opacity: 0 },
@@ -76,7 +75,6 @@ const ProjectCard = ({ project }) => {
         }
       );
 
-      // Subtle image parallax shift within the container on scroll
       if (imageRef.current) {
         gsap.fromTo(
           imageRef.current,

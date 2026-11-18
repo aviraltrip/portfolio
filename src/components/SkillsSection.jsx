@@ -141,7 +141,6 @@ export const SkillsSection = () => {
     ({ prefersReducedMotion }) => {
       if (prefersReducedMotion) return;
 
-      // Animate heading
       if (headingRef.current) {
         gsap.fromTo(
           headingRef.current,
@@ -161,7 +160,6 @@ export const SkillsSection = () => {
         );
       }
 
-      // Animate skill badges with cascading wave stagger
       if (gridRef.current) {
         const badges = Array.from(gridRef.current.children);
         gsap.fromTo(

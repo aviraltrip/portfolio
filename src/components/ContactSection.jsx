@@ -102,7 +102,6 @@ export const ContactSection = () => {
     ({ prefersReducedMotion }) => {
       if (prefersReducedMotion) return;
 
-      // Animate heading and subtitle
       if (headingRef.current) {
         gsap.fromTo(
           Array.from(headingRef.current.children),
@@ -123,7 +122,6 @@ export const ContactSection = () => {
         );
       }
 
-      // Left column slide-in
       if (leftColRef.current) {
         gsap.fromTo(
           leftColRef.current,
@@ -143,7 +141,6 @@ export const ContactSection = () => {
         );
       }
 
-      // Right column slide-in
       if (rightColRef.current) {
         gsap.fromTo(
           rightColRef.current,
