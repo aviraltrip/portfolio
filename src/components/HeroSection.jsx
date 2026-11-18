@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
+import gsap from "gsap";
+import { useGsapContext, useParallax, useMagnetic } from "@/hooks/useGsapAnimation";
 
 const GitHubLogo = ({ size = 13 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +53,6 @@ const CodeforcesLogo = ({ size = 13 }) => (
   </svg>
 );
 
-
 const socials = [
   { href: "https://github.com/aviraltrip", icon: GitHubLogo, label: "Github" },
   { href: "https://x.com/AviralTrip2503", icon: XLogo, label: "X" },
@@ -69,6 +70,21 @@ export const HeroSection = () => {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
 
+  const heroRef = useRef(null);
+  const glowRef = useRef(null);
+  const avatarWrapperRef = useRef(null);
+  const infoRef = useRef(null);
+  const bioRef = useRef(null);
+  const socialsRef = useRef(null);
+  const socialPillsRef = useRef(null);
+
+  // Parallax on ambient glow behind hero
+  useParallax(glowRef, { yPercent: 30, scrub: 1.2 });
+
+  // Magnetic interaction on avatar for subtle tactile feel
+  useMagnetic(avatarWrapperRef, 0.2);
+
+  // Rotating title interval
   useEffect(() => {
     const interval = setInterval(() => {
       setVisible(false);
@@ -79,16 +95,81 @@ export const HeroSection = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [titles.length]);
+
+  // Page Load Entrance Animations
+  useGsapContext(
+    ({ prefersReducedMotion }) => {
+      if (prefersReducedMotion) return;
+
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.from(avatarWrapperRef.current, {
+        scale: 0.7,
+        opacity: 0,
+        duration: 0.9,
+        ease: "back.out(1.5)",
+      })
+        .from(
+          infoRef.current,
+          {
+            y: 25,
+            opacity: 0,
+            duration: 0.8,
+          },
+          "-=0.6"
+        )
+        .from(
+          bioRef.current,
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.75,
+          },
+          "-=0.5"
+        )
+        .from(
+          socialsRef.current,
+          {
+            opacity: 0,
+            y: 15,
+            duration: 0.6,
+          },
+          "-=0.4"
+        )
+        .from(
+          socialPillsRef.current ? socialPillsRef.current.children : [],
+          {
+            y: 12,
+            opacity: 0,
+            scale: 0.9,
+            duration: 0.45,
+            stagger: 0.05,
+            ease: "back.out(1.4)",
+          },
+          "-=0.35"
+        );
+    },
+    heroRef,
+    []
+  );
 
   return (
     <section
       id="hero"
-      className="scroll-mt-20 pt-32 pb-10 px-4 max-w-3xl mx-auto z-10 animate-fade-in"
+      ref={heroRef}
+      className="scroll-mt-20 pt-32 pb-10 px-4 max-w-3xl mx-auto z-10 relative"
     >
+      {/* Subtle ambient glow behind hero with parallax */}
+      <div
+        ref={glowRef}
+        aria-hidden="true"
+        className="absolute top-16 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-primary/10 rounded-full blur-[110px] pointer-events-none -z-10"
+      />
+
       <div className="space-y-8 text-left">
         <div className="flex items-center gap-5">
-          <div className="relative group shrink-0">
+          <div ref={avatarWrapperRef} className="relative group shrink-0 will-change-transform">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary via-indigo-500 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-500" />
             
             <div className="relative w-20 h-20 rounded-full overflow-hidden bg-neutral-950 dark:bg-zinc-900 border border-white/10 dark:border-zinc-800/80 shadow-xl shadow-black/20 transition-all duration-300 group-hover:scale-105">
@@ -96,10 +177,11 @@ export const HeroSection = () => {
                 src="https://github.com/aviraltrip.png"
                 alt="Aviral Tripathi"
                 className="w-full h-full object-cover"
+                loading="eager"
               />
             </div>
           </div>
-          <div>
+          <div ref={infoRef}>
             <h1 className="text-3xl font-bold tracking-tight text-foreground">
               Aviral Tripathi
             </h1>
@@ -114,19 +196,17 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div ref={bioRef} className="space-y-4">
           <p className="text-base text-foreground leading-relaxed text-justify">
             <strong>Full-stack & AI developer</strong> building modern web apps and AI-powered systems. I work across frontend, backend, and LLM workflows with <strong>Next.js, React, Python, Go, FastAPI, LangChain, PostgreSQL, Redis, and MongoDB</strong>.
           </p>
         </div>
 
-
-
-        <div className="pt-4 border-t border-border/40">
+        <div ref={socialsRef} className="pt-4 border-t border-border/40">
           <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider mb-3 pl-1">
             Here are my socials
           </p>
-          <div className="flex gap-2 flex-wrap">
+          <div ref={socialPillsRef} className="flex gap-2 flex-wrap">
             {socials.map(({ href, icon: Icon, label }) => (
               <a
                 key={label}
