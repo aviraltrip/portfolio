@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { ResumeButton } from "./ResumeButton";
+import { useLenis } from "@/context/SmoothScrollContext";
 
 const navItems = [
   { name: "About", href: "#hero", id: "hero" },
@@ -16,12 +17,24 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const { scrollTo } = useLenis() || {};
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    if (scrollTo) {
+      scrollTo(href, { offset: -65 });
+    } else {
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 15);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -34,7 +47,7 @@ export const Navbar = () => {
         ([entry]) => {
           if (entry.isIntersecting) setActiveSection(id);
         },
-        { rootMargin: "-40% 0px -55% 0px" }
+        { rootMargin: "-35% 0px -55% 0px" }
       );
       obs.observe(el);
       observers.push(obs);
@@ -62,19 +75,17 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 w-full h-16 z-50",
-        "transition-[box-shadow,backdrop-filter,border-color] duration-300",
+        "fixed top-0 left-0 right-0 w-full h-16 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-background/90 backdrop-blur-md shadow-lg border-b border-border/50"
-          : "bg-background/60 backdrop-blur-sm"
+          ? "bg-background/85 backdrop-blur-md shadow-sm border-b border-border/50"
+          : "bg-background/50 backdrop-blur-xs"
       )}
     >
       <div className="container mx-auto px-4 h-full flex items-center">
-
         <a
           className="text-xl font-bold flex items-center relative z-50 h-full group"
           href="#hero"
-          onClick={() => setIsMenuOpen(false)}
+          onClick={(e) => handleNavClick(e, "#hero")}
         >
           <span className="text-foreground group-hover:text-primary transition-colors duration-300">
             Aviral's{" "}
@@ -84,27 +95,32 @@ export const Navbar = () => {
 
         <div className="flex-grow" />
 
-
         <div className="hidden md:flex items-center space-x-1 h-full">
-          {navItems.map((item) => (
-            <a
-              key={item.id}
-              href={item.href}
-              className={cn(
-                "relative px-3 py-1.5 text-sm font-medium transition-all duration-200",
-                "flex items-center h-full group/nav",
-                activeSection === item.id ? "text-primary" : "text-foreground/70 hover:text-primary"
-              )}
-            >
-              {item.name}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <a
+                key={item.id}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className={cn(
+                  "relative px-3.5 py-1.5 text-sm font-medium transition-colors duration-200",
+                  "flex items-center h-full group/nav",
+                  isActive ? "text-primary" : "text-foreground/75 hover:text-primary"
+                )}
+              >
+                <span>{item.name}</span>
+                {isActive && (
+                  <span className="absolute bottom-2 left-3.5 right-3.5 h-[2px] bg-primary rounded-full transition-all duration-300" />
+                )}
+              </a>
+            );
+          })}
           <div className="ml-3 flex items-center gap-3 h-full">
             <ResumeButton variant="compact" />
             <ThemeToggle />
           </div>
         </div>
-
 
         <div className="md:hidden flex items-center gap-2 relative z-50">
           <ThemeToggle />
@@ -132,7 +148,6 @@ export const Navbar = () => {
             </div>
           </button>
         </div>
-
 
         <div
           className={cn(
@@ -168,7 +183,7 @@ export const Navbar = () => {
                   transitionTimingFunction: "ease, ease, ease, ease",
                   transitionDelay: isMenuOpen ? `${key * 60}ms` : "0ms",
                 }}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, item.href)}
               >
                 {item.name}
               </a>
