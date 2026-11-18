@@ -59,17 +59,22 @@ const ProjectCard = ({ project }) => {
       if (prefersReducedMotion) return;
 
       // Card entrance animation
-      gsap.from(cardRef.current, {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-      });
+      gsap.fromTo(
+        cardRef.current,
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          clearProps: "transform,opacity",
+          scrollTrigger: {
+            trigger: cardRef.current,
+            start: "top 92%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
 
       // Subtle image parallax shift within the container on scroll
       if (imageRef.current) {
@@ -186,17 +191,24 @@ export const ProjectsSection = () => {
     ({ prefersReducedMotion }) => {
       if (prefersReducedMotion) return;
 
-      gsap.from(headingRef.current, {
-        y: 25,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-      });
+      if (headingRef.current) {
+        gsap.fromTo(
+          headingRef.current,
+          { y: 25, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: headingRef.current,
+              start: "top 92%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
     },
     sectionRef,
     []

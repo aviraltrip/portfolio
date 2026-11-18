@@ -142,37 +142,50 @@ export const SkillsSection = () => {
       if (prefersReducedMotion) return;
 
       // Animate heading
-      gsap.from(headingRef.current, {
-        y: 25,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-      });
+      if (headingRef.current) {
+        gsap.fromTo(
+          headingRef.current,
+          { y: 25, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.75,
+            ease: "power3.out",
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: headingRef.current,
+              start: "top 92%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
 
       // Animate skill badges with cascading wave stagger
       if (gridRef.current) {
-        gsap.from(gridRef.current.children, {
-          y: 22,
-          opacity: 0,
-          scale: 0.94,
-          duration: 0.6,
-          stagger: {
-            amount: 0.45,
-            from: "start",
-            ease: "power2.out",
-          },
-          ease: "back.out(1.4)",
-          scrollTrigger: {
-            trigger: gridRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        });
+        const badges = Array.from(gridRef.current.children);
+        gsap.fromTo(
+          badges,
+          { y: 20, opacity: 0, scale: 0.94 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            stagger: {
+              amount: 0.45,
+              from: "start",
+              ease: "power2.out",
+            },
+            ease: "back.out(1.4)",
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: gridRef.current,
+              start: "top 92%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
       }
     },
     sectionRef,

@@ -66,49 +66,67 @@ export const OpenSourceSection = () => {
       if (prefersReducedMotion) return;
 
       // Animate header and description
-      gsap.from(headerRef.current.children, {
-        y: 22,
-        opacity: 0,
-        duration: 0.75,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-      });
+      if (headerRef.current) {
+        gsap.fromTo(
+          Array.from(headerRef.current.children),
+          { y: 22, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.75,
+            stagger: 0.1,
+            ease: "power3.out",
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 92%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
 
       // Animate list items with stagger
       if (listRef.current) {
-        gsap.from(listRef.current.children, {
-          y: 25,
-          opacity: 0,
-          scale: 0.98,
-          duration: 0.65,
-          stagger: 0.07,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: listRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        });
+        const items = Array.from(listRef.current.children);
+        gsap.fromTo(
+          items,
+          { y: 25, opacity: 0, scale: 0.98 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.65,
+            stagger: 0.07,
+            ease: "power2.out",
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: listRef.current,
+              start: "top 92%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
       }
 
       // Animate footer link
       if (footerLinkRef.current) {
-        gsap.from(footerLinkRef.current, {
-          y: 15,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: footerLinkRef.current,
-            start: "top 90%",
-            toggleActions: "play none none none",
-          },
-        });
+        gsap.fromTo(
+          footerLinkRef.current,
+          { y: 15, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: footerLinkRef.current,
+              start: "top 95%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
       }
     },
     sectionRef,

@@ -103,47 +103,64 @@ export const ContactSection = () => {
       if (prefersReducedMotion) return;
 
       // Animate heading and subtitle
-      gsap.from(headingRef.current.children, {
-        y: 22,
-        opacity: 0,
-        duration: 0.75,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-      });
+      if (headingRef.current) {
+        gsap.fromTo(
+          Array.from(headingRef.current.children),
+          { y: 22, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.75,
+            stagger: 0.1,
+            ease: "power3.out",
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: headingRef.current,
+              start: "top 92%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
 
       // Left column slide-in
       if (leftColRef.current) {
-        gsap.from(leftColRef.current, {
-          x: -30,
-          opacity: 0,
-          duration: 0.85,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: leftColRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        });
+        gsap.fromTo(
+          leftColRef.current,
+          { x: -30, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.85,
+            ease: "power3.out",
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: leftColRef.current,
+              start: "top 92%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
       }
 
       // Right column slide-in
       if (rightColRef.current) {
-        gsap.from(rightColRef.current, {
-          x: 30,
-          opacity: 0,
-          duration: 0.85,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: rightColRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        });
+        gsap.fromTo(
+          rightColRef.current,
+          { x: 30, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.85,
+            ease: "power3.out",
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: rightColRef.current,
+              start: "top 92%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
       }
     },
     sectionRef,

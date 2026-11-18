@@ -13,34 +13,46 @@ export const ExperienceSection = () => {
       if (prefersReducedMotion) return;
 
       // Animate section heading
-      gsap.from(headingRef.current, {
-        y: 25,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-      });
+      if (headingRef.current) {
+        gsap.fromTo(
+          headingRef.current,
+          { y: 25, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: headingRef.current,
+              start: "top 92%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
 
       // Animate experience cards staggered
       const validCards = cardsRef.current.filter(Boolean);
       if (validCards.length > 0) {
-        gsap.from(validCards, {
-          y: 40,
-          scale: 0.98,
-          opacity: 0,
-          duration: 0.85,
-          stagger: 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: validCards[0],
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        });
+        gsap.fromTo(
+          validCards,
+          { y: 35, scale: 0.98, opacity: 0 },
+          {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: validCards[0],
+              start: "top 92%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
       }
     },
     sectionRef,
