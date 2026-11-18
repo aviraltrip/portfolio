@@ -1,4 +1,7 @@
+import { useRef } from "react";
 import { GitPullRequest, GitMerge, ArrowRight } from "lucide-react";
+import gsap from "gsap";
+import { useGsapContext } from "@/hooks/useGsapAnimation";
 
 const contributions = [
   {
@@ -53,28 +56,93 @@ const contributions = [
 ];
 
 export const OpenSourceSection = () => {
-  return (
-    <section id="opensource" className="pt-12 pb-12 px-4 relative overflow-hidden">
-      <div className="container mx-auto max-w-3xl relative z-10">
-        <h2 className="section-heading">
-          Open <span className="text-gradient">Source</span>
-        </h2>
-        
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto -mt-6">
-          Contributing to open source lately: API systems, web architectures, and production bug fixes.
-        </p>
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const listRef = useRef(null);
+  const footerLinkRef = useRef(null);
 
-        <div className="space-y-3.5">
+  useGsapContext(
+    ({ prefersReducedMotion }) => {
+      if (prefersReducedMotion) return;
+
+      // Animate header and description
+      gsap.from(headerRef.current.children, {
+        y: 22,
+        opacity: 0,
+        duration: 0.75,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      // Animate list items with stagger
+      if (listRef.current) {
+        gsap.from(listRef.current.children, {
+          y: 25,
+          opacity: 0,
+          scale: 0.98,
+          duration: 0.65,
+          stagger: 0.07,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: listRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        });
+      }
+
+      // Animate footer link
+      if (footerLinkRef.current) {
+        gsap.from(footerLinkRef.current, {
+          y: 15,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: footerLinkRef.current,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+        });
+      }
+    },
+    sectionRef,
+    []
+  );
+
+  return (
+    <section
+      id="opensource"
+      ref={sectionRef}
+      className="pt-12 pb-12 px-4 relative overflow-hidden"
+    >
+      <div className="container mx-auto max-w-3xl relative z-10">
+        <div ref={headerRef}>
+          <h2 className="section-heading">
+            Open <span className="text-gradient">Source</span>
+          </h2>
+
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto -mt-6">
+            Contributing to open source lately: API systems, web architectures, and production bug fixes.
+          </p>
+        </div>
+
+        <div ref={listRef} className="space-y-3.5">
           {contributions.map((pr, index) => (
             <a
               key={index}
               href={pr.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 rounded-xl border border-border/40 bg-card/45 backdrop-blur-xs transition-all duration-300 hover:scale-[1.01] hover:border-primary/45 hover:shadow-sm group"
+              className="flex items-center justify-between p-4 rounded-xl border border-border/40 bg-card/45 backdrop-blur-xs transition-all duration-300 hover:scale-[1.01] hover:border-primary/45 hover:shadow-sm group will-change-transform"
             >
               <div className="flex items-center gap-4 min-w-0">
-                <div className="p-2.5 rounded-lg bg-background/50 border border-border/50 text-muted-foreground group-hover:text-primary group-hover:border-primary/30 transition-colors duration-300">
+                <div className="p-2.5 rounded-lg bg-background/50 border border-border/50 text-muted-foreground group-hover:text-primary group-hover:border-primary/30 transition-colors duration-300 shrink-0">
                   {pr.status === "merged" ? (
                     <GitMerge size={18} className="text-muted-foreground group-hover:text-primary transition-colors" />
                   ) : (
@@ -90,7 +158,7 @@ export const OpenSourceSection = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-border/50 text-xs font-medium text-foreground/80 bg-background/40 capitalize">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-border/50 text-xs font-medium text-foreground/80 bg-background/40 capitalize shrink-0 ml-3">
                 {pr.status === "merged" ? (
                   <GitMerge size={12} className="text-muted-foreground group-hover:text-primary transition-colors" />
                 ) : (
@@ -102,7 +170,7 @@ export const OpenSourceSection = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div ref={footerLinkRef} className="mt-12 text-center">
           <a
             href="https://github.com/aviraltrip"
             target="_blank"
@@ -110,7 +178,7 @@ export const OpenSourceSection = () => {
             className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 group"
           >
             See all contributions on GitHub
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
           </a>
         </div>
       </div>
