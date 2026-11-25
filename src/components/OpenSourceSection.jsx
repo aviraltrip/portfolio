@@ -12,6 +12,13 @@ const contributions = [
     url: "https://github.com/ujjwalv01/releaseproof/pull/223"
   },
   {
+    title: "fix(state): revert context and delete snapshot on step cancellation",
+    repo: "PicadoLabs/build-with-ai",
+    number: 167,
+    status: "merged",
+    url: "https://github.com/PicadoLabs/build-with-ai/pull/167"
+  },
+  {
     title: "feat: add human-readable __str__ format for CheckResult and Trace (#61)",
     repo: "LUC-AI4FM/tlakit",
     number: 71,
@@ -38,13 +45,6 @@ const contributions = [
     number: 115,
     status: "merged",
     url: "https://github.com/LUC-AI4FM/tlakit/pull/115"
-  },
-  {
-    title: "fix(state): revert context and delete snapshot on step cancellation",
-    repo: "PicadoLabs/build-with-ai",
-    number: 167,
-    status: "open",
-    url: "https://github.com/PicadoLabs/build-with-ai/pull/167"
   },
   {
     title: "fix: normalize punctuation-delimited meaning initials",
