@@ -5,6 +5,41 @@ import { useGsapContext } from "@/hooks/useGsapAnimation";
 
 const contributions = [
   {
+    title: "fix(core): reject registry URLs with embedded credentials",
+    repo: "ujjwalv01/releaseproof",
+    number: 223,
+    status: "merged",
+    url: "https://github.com/ujjwalv01/releaseproof/pull/223"
+  },
+  {
+    title: "feat: add human-readable __str__ format for CheckResult and Trace (#61)",
+    repo: "LUC-AI4FM/tlakit",
+    number: 71,
+    status: "merged",
+    url: "https://github.com/LUC-AI4FM/tlakit/pull/71"
+  },
+  {
+    title: "fix: add --version option to CLI",
+    repo: "LUC-AI4FM/tlakit",
+    number: 99,
+    status: "merged",
+    url: "https://github.com/LUC-AI4FM/tlakit/pull/99"
+  },
+  {
+    title: "test(examples): add offline smoke test for run_demo.py (#136)",
+    repo: "MarcoPorcellato/logseq-matryca-parser",
+    number: 146,
+    status: "merged",
+    url: "https://github.com/MarcoPorcellato/logseq-matryca-parser/pull/146"
+  },
+  {
+    title: "fix: simplify check.sh using POSIX shell parameter expansion",
+    repo: "LUC-AI4FM/tlakit",
+    number: 115,
+    status: "merged",
+    url: "https://github.com/LUC-AI4FM/tlakit/pull/115"
+  },
+  {
     title: "fix(state): revert context and delete snapshot on step cancellation",
     repo: "PicadoLabs/build-with-ai",
     number: 167,
@@ -17,41 +52,6 @@ const contributions = [
     number: 7,
     status: "open",
     url: "https://github.com/EricSpencer00/abbreviation-maker/pull/7"
-  },
-  {
-    title: "fix: add --version option to CLI",
-    repo: "LUC-AI4FM/tlakit",
-    number: 99,
-    status: "merged",
-    url: "https://github.com/LUC-AI4FM/tlakit/pull/99"
-  },
-  {
-    title: "feat: add human-readable __str__ format for CheckResult and Trace (#61)",
-    repo: "LUC-AI4FM/tlakit",
-    number: 71,
-    status: "merged",
-    url: "https://github.com/LUC-AI4FM/tlakit/pull/71"
-  },
-  {
-    title: "test(examples): add offline smoke test for run_demo.py (#136)",
-    repo: "MarcoPorcellato/logseq-matryca-parser",
-    number: 146,
-    status: "merged",
-    url: "https://github.com/MarcoPorcellato/logseq-matryca-parser/pull/146"
-  },
-  {
-    title: "fix: simplify check.sh curl upload",
-    repo: "LUC-AI4FM/tlakit",
-    number: 102,
-    status: "merged",
-    url: "https://github.com/LUC-AI4FM/tlakit/pull/102"
-  },
-  {
-    title: "fix: simplify check.sh using POSIX shell parameter expansion",
-    repo: "LUC-AI4FM/tlakit",
-    number: 115,
-    status: "merged",
-    url: "https://github.com/LUC-AI4FM/tlakit/pull/115"
   }
 ];
 

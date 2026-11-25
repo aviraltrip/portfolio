@@ -64,6 +64,7 @@ const socials = [
 export const HeroSection = () => {
   const titles = [
     "Full Stack Engineer",
+    "2× Startup Intern",
     "2× Hackathon Winner",
     "Open Source Contributor"
   ];
